@@ -1,0 +1,34 @@
+body{
+
+}
+
+
+
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+
+  height: 600px;
+  width: 350px;
+  margin: 0 auto;
+}
+
+
+.grid-item {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid blue;
+}
+
+div.grid-item.activeItem {
+  /* background-image: url('../assets/pika-sprite.png'); */
+  background-color: gold;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+div.idle {
+  background-color: darkcyan;
+  background-size: contain;
+}
