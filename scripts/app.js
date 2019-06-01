@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   board[playerIndexFour].classList.add('activeItem')
 
   function slowDrop(){
-    // if (reachBottom === false){
 
     playerIndex += width
     playerIndexTwo += width
@@ -46,21 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bottomCheck()
     console.log(activeItem)
   }
-
-  // }
-
   setInterval(slowDrop, 1000)
-
-  // function newShape(){
-  //   playerIndex = 3
-  //   playerIndexTwo = 4
-  //   playerIndexThree = 5
-  //   playerIndexFour = 6
-  //   board[playerIndex].classList.add('activeItem')
-  //   board[playerIndexTwo].classList.add('activeItem')
-  //   board[playerIndexThree].classList.add('activeItem')
-  //   board[playerIndexFour].classList.add('activeItem')
-  // }
 
   function handleKeyDown(e) {
     console.log('hi')
@@ -127,10 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-
-
-  window.addEventListener('keydown', handleKeyDown)
-
   function bottomCheck(){
 
     if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199){
@@ -147,16 +128,30 @@ document.addEventListener('DOMContentLoaded', () => {
       playerIndexTwo = 4
       playerIndexThree = 5
       playerIndexFour = 6
-
     }
-
     //call new shape
   }
 
-  
 
 
+  const audio = document.querySelector('#audio')
+  const music = document.querySelector('.music')
+  const stopMusic = document.querySelector('.stopMusic')
+  // const currentSong = document.querySelector('#currentSong')
+  const tracks = ['sounds/slowyShowdown.mp3','sounds/atompilz.mp3','sounds/Brechmittel.mp3','sounds/Glaubensfrage.mp3']
+  music.addEventListener('click', () => {
+    audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+    audio.play()
+    console.log('pressed')
+  })
+  stopMusic.addEventListener('click', () => {
+    audio.pause()
+    console.log('pressed')
+  })
+  // currentSong.innerHTML = `Currently playing: ${tracks}`
 
+
+  window.addEventListener('keydown', handleKeyDown)
   console.log(board)
   console.log(activeItem)
 
