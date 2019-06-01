@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 10
   const height = 20
   const board = []
+  const activeItem = document.querySelector('.activeItem')
   let playerIndex = 3
   let playerIndexTwo = 4
   let playerIndexThree = 5
   let playerIndexFour = 6
-
+  // let reachBottom = false
 
   function makeGrid(){
     for (let i = 0; i < width * height; i++){
@@ -21,50 +22,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  makeGrid()
 
-  // function moveItem() {
-  //   board.forEach(square => square.classList.remove('activeItem'))
-  //
+  board[playerIndex].classList.add('activeItem')
+  board[playerIndexTwo].classList.add('activeItem')
+  board[playerIndexThree].classList.add('activeItem')
+  board[playerIndexFour].classList.add('activeItem')
+
+  function slowDrop(){
+    // if (reachBottom === false){
+
+    playerIndex += width
+    playerIndexTwo += width
+    playerIndexThree += width
+    playerIndexFour += width
+
+    board.forEach(square => square.classList.remove('activeItem'))
+
+    board[playerIndex].classList.add('activeItem')
+    board[playerIndexTwo].classList.add('activeItem')
+    board[playerIndexThree].classList.add('activeItem')
+    board[playerIndexFour].classList.add('activeItem')
+    bottomCheck()
+    console.log(activeItem)
+  }
+
+  // }
+
+  setInterval(slowDrop, 1000)
+
+  // function newShape(){
+  //   playerIndex = 3
+  //   playerIndexTwo = 4
+  //   playerIndexThree = 5
+  //   playerIndexFour = 6
   //   board[playerIndex].classList.add('activeItem')
   //   board[playerIndexTwo].classList.add('activeItem')
   //   board[playerIndexThree].classList.add('activeItem')
   //   board[playerIndexFour].classList.add('activeItem')
-  //
-  //   bottomCheck()
   // }
-
-
-  let reachBottom = false
-
-  function slowDrop(){
-
-    if (reachBottom === false){
-
-      playerIndex += width
-      playerIndexTwo += width
-      playerIndexThree += width
-      playerIndexFour += width
-
-      board.forEach(square => square.classList.remove('activeItem'))
-
-      board[playerIndex].classList.add('activeItem')
-      board[playerIndexTwo].classList.add('activeItem')
-      board[playerIndexThree].classList.add('activeItem')
-      board[playerIndexFour].classList.add('activeItem')
-
-      bottomCheck()
-    } else if (reachBottom === true){
-      console.log('reached Bottom')
-    }
-
-  }
-  // handleKeyDown()
-
-  setInterval(slowDrop, 1000)
 
   function handleKeyDown(e) {
     console.log('hi')
-    let playerShouldMove = true
     switch(e.keyCode) {
       case 39:
         if (playerIndexFour % 10 === 9){
@@ -74,6 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
           playerIndexTwo++
           playerIndexThree++
           playerIndexFour++
+          board.forEach(square => square.classList.remove('activeItem'))
+
+          board[playerIndex].classList.add('activeItem')
+          board[playerIndexTwo].classList.add('activeItem')
+          board[playerIndexThree].classList.add('activeItem')
+          board[playerIndexFour].classList.add('activeItem')
+          bottomCheck()
         }
         break
       case 37:
@@ -82,6 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
           playerIndexTwo--
           playerIndexThree--
           playerIndexFour--
+          board.forEach(square => square.classList.remove('activeItem'))
+
+          board[playerIndex].classList.add('activeItem')
+          board[playerIndexTwo].classList.add('activeItem')
+          board[playerIndexThree].classList.add('activeItem')
+          board[playerIndexFour].classList.add('activeItem')
+          bottomCheck()
         }
         break
       // case 38:
@@ -98,27 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
           playerIndexTwo += width
           playerIndexThree += width
           playerIndexFour += width
+          board.forEach(square => square.classList.remove('activeItem'))
+
+          board[playerIndex].classList.add('activeItem')
+          board[playerIndexTwo].classList.add('activeItem')
+          board[playerIndexThree].classList.add('activeItem')
+          board[playerIndexFour].classList.add('activeItem')
+          bottomCheck()
         }
         break
       default:
-        playerShouldMove = false
+
     }
     console.log(playerIndex, playerIndexTwo, playerIndexThree, playerIndexFour)
-    if (playerShouldMove){
-      slowDrop()
-    } else if (playerIndex.idle){
-      playerShouldMove = false
-    }
+
   }
 
-  makeGrid()
 
-//grant classes to new shape
-
-  board[playerIndex].classList.add('activeItem')
-  board[playerIndexTwo].classList.add('activeItem')
-  board[playerIndexThree].classList.add('activeItem')
-  board[playerIndexFour].classList.add('activeItem')
 
   window.addEventListener('keydown', handleKeyDown)
 
@@ -133,37 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
       board[playerIndexTwo].classList.add('idle')
       board[playerIndexThree].classList.add('idle')
       board[playerIndexFour].classList.add('idle')
-      reachBottom = true
+      // reachBottom = true
+      playerIndex = 3
+      playerIndexTwo = 4
+      playerIndexThree = 5
+      playerIndexFour = 6
 
     }
 
     //call new shape
   }
 
+  
 
 
 
   console.log(board)
-
-  // function movingObjectA(){
-  //
-  //
-  //  [[0,1,0],
-  //  [0,1,0],
-  //  [0,1,1]]
-  //
-  //
-  // }
-  //
-  // Shapes = {
-  //           ZShape: [[0, -1], [0, 0], [-1, 0], [-1, 1]],
-  //           SShape: [[0, -1], [0, 0], [1, 0], [1, 1]],
-  //           IShape: [[0, -1], [0, 0], [0, 1], [0, 2]],
-  //           TShape: [[-1, 0], [0, 0], [1, 0], [0, 1]],
-  //           Square: [[0, 0], [1, 0], [0, 1], [1, 1]],
-  //           LShape: [[-1, -1], [0, -1], [0, 0], [0, 1]],
-  //           JShape: [[1, -1], [0, -1], [0, 0], [0, 1]]
-  //       }
-
+  console.log(activeItem)
 
 })
