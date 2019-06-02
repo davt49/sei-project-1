@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const shapeI = {
-
+    name: 'I',
     playerIndex: 3,
     playerIndexTwo: 4,
     playerIndexThree: 5,
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
   const shapeSq = {
-
+    name: 'Sq',
     playerIndex: 14,
     playerIndexTwo: 15,
     playerIndexThree: 5,
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
   const shapeL = {
-
+    name: 'L',
     playerIndex: 13,
     playerIndexTwo: 14,
     playerIndexThree: 15,
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
   const shapeT = {
-
+    name: 'T',
     playerIndex: 13,
     playerIndexTwo: 14,
     playerIndexThree: 15,
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
   const shapeJ = {
-
+    name: 'J',
     playerIndex: 13,
     playerIndexTwo: 14,
     playerIndexThree: 15,
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
   const shapeS = {
-
+    name: 'S',
     playerIndex: 13,
     playerIndexTwo: 14,
     playerIndexThree: 5,
@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
   const shapeZ = {
-
+    name: 'Z',
     playerIndex: 14,
     playerIndexTwo: 15,
-    playerIndexThree: 3,
-    playerIndexFour: 4
+    playerIndexThree: 4,
+    playerIndexFour: 3
 
   }
 
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     playerIndexTwo = whichOne.playerIndexTwo
     playerIndexThree = whichOne.playerIndexThree
     playerIndexFour = whichOne.playerIndexFour
+    console.log(whichOne.name)
   }
   whatShape()
   console.log(typeof whatShape())
@@ -116,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(slowDrop, 1000)
 
   function handleKeyDown(e) {
-    console.log('hi')
+
     switch(e.keyCode) {
       case 39:
-        if (playerIndexFour % 10 === 9){
+        if (playerIndexFour % 10 === 9 || playerIndexThree % 10 === 9 || playerIndexTwo % 10 === 9 || playerIndex % 10 === 9 ){
           console.log('wall')
         } else if (playerIndex % width < width) {
           playerIndex++
