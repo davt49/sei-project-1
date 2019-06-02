@@ -6,11 +6,79 @@ document.addEventListener('DOMContentLoaded', () => {
   const board = []
   const score = document.querySelector('.score')
 
-  let playerIndex = 3
-  let playerIndexTwo = 4
-  let playerIndexThree = 5
-  let playerIndexFour = 6
+  let playerIndex
+  let playerIndexTwo
+  let playerIndexThree
+  let playerIndexFour
 
+
+  const shapeI = {
+
+    playerIndex: 3,
+    playerIndexTwo: 4,
+    playerIndexThree: 5,
+    playerIndexFour: 6
+
+  }
+  const shapeSq = {
+
+    playerIndex: 14,
+    playerIndexTwo: 15,
+    playerIndexThree: 5,
+    playerIndexFour: 4
+
+  }
+  const shapeL = {
+
+    playerIndex: 13,
+    playerIndexTwo: 14,
+    playerIndexThree: 15,
+    playerIndexFour: 5
+
+  }
+  const shapeT = {
+
+    playerIndex: 13,
+    playerIndexTwo: 14,
+    playerIndexThree: 15,
+    playerIndexFour: 4
+
+  }
+  const shapeJ = {
+
+    playerIndex: 13,
+    playerIndexTwo: 14,
+    playerIndexThree: 15,
+    playerIndexFour: 3
+
+  }
+  const shapeS = {
+
+    playerIndex: 13,
+    playerIndexTwo: 14,
+    playerIndexThree: 5,
+    playerIndexFour: 4
+
+  }
+  const shapeZ = {
+
+    playerIndex: 14,
+    playerIndexTwo: 15,
+    playerIndexThree: 3,
+    playerIndexFour: 4
+
+  }
+
+  const whatShapeArray = [shapeI,shapeSq,shapeL,shapeT,shapeJ,shapeS,shapeZ]
+  function whatShape(){
+    const whichOne = whatShapeArray[Math.floor(Math.random() * whatShapeArray.length)]
+    playerIndex= whichOne.playerIndex
+    playerIndexTwo = whichOne.playerIndexTwo
+    playerIndexThree = whichOne.playerIndexThree
+    playerIndexFour = whichOne.playerIndexFour
+  }
+  whatShape()
+  console.log(typeof whatShape())
 
   function makeGrid(){
     for (let i = 0; i < width * height; i++){
@@ -112,6 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+
+
   function bottomCheck(){
 
     if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199){
@@ -124,33 +194,17 @@ document.addEventListener('DOMContentLoaded', () => {
       board[playerIndexThree].classList.add('idle')
       board[playerIndexFour].classList.add('idle')
 
-      playerIndex = 3
-      playerIndexTwo = 4
-      playerIndexThree = 5
-      playerIndexFour = 6
+      // playerIndex = 3
+      // playerIndexTwo = 4
+      // playerIndexThree = 5
+      // playerIndexFour = 6
+      whatShape()
     }
     //call new shape
   }
 
-  board[190].classList.add('bottom-row')
-  board[191].classList.add('bottom-row')
-  board[192].classList.add('bottom-row')
-  board[193].classList.add('bottom-row')
-  board[194].classList.add('bottom-row')
-  board[195].classList.add('bottom-row')
-  board[196].classList.add('bottom-row')
-  board[197].classList.add('bottom-row')
-  board[198].classList.add('bottom-row')
-  board[199].classList.add('bottom-row')
 
-  function giveScore(){
-    const bottomRow = document.querySelectorAll('.bottom-row')
-    if(bottomRow.forEach(bottomRow => bottomRow.classList.contains('idle'))){
-      score.innerHTML = score + 10
-      console.log('10 points!')
-    }
-  }
-  giveScore()
+
 
 
 
@@ -171,6 +225,37 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   //MUSIC SECTION
   //MUSIC SECTION
+
+
+  //scoreboardsendhelp
+  //scoreboardsendhelp
+  board[190].classList.add('bottom-row')
+  board[191].classList.add('bottom-row')
+  board[192].classList.add('bottom-row')
+  board[193].classList.add('bottom-row')
+  board[194].classList.add('bottom-row')
+  board[195].classList.add('bottom-row')
+  board[196].classList.add('bottom-row')
+  board[197].classList.add('bottom-row')
+  board[198].classList.add('bottom-row')
+  board[199].classList.add('bottom-row')
+
+  const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
+  const bottomRow = document.querySelectorAll('.bottom-row')
+
+  console.log(bottomNums === [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]])
+  console.log(bottomRow)
+
+  function giveScore(){
+    if(bottomNums.forEach(bottomRow => bottomRow.classList.contains('idle'))){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+    }
+  }
+  giveScore()
+  //scoreboardsendhelp
+  //scoreboardsendhelp
+
 
 
   window.addEventListener('keydown', handleKeyDown)
