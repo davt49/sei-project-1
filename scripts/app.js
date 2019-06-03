@@ -52,9 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     playerIndex: [14,15,4,3]
   }
 
-
   const whatShapeArray = [I,Sq,L,T,J,S,Z]
-
 
   function whatShape(){
 
@@ -69,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
   whatShape()
-
 
   console.log(whichOne.name,whichOne.playerIndex[0],degrees)
 
@@ -142,7 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
   board[playerIndexFour].classList.add('activeItem')
 
   function slowDrop(){
-
+    // cantGoDown()
+    // if (cantGoDown === true){
+    //   console.log('stackOnTop')
+    //   stackOnTop()
+    // } else{
     playerIndex += width
     playerIndexTwo += width
     playerIndexThree += width
@@ -155,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     board[playerIndexThree].classList.add('activeItem')
     board[playerIndexFour].classList.add('activeItem')
     bottomCheck()
+    // }
   }
   setInterval(slowDrop, 1000)
 
@@ -227,7 +229,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  // true go down
+  // false
 
+  function cantGoDown(){
+    const oneBelow = playerIndex + width
+    const twoBelow = playerIndexTwo + width
+    const threeBelow = playerIndexThree + width
+    const fourBelow = playerIndexFour + width
+    console.log(playerIndex, playerIndexTwo,playerIndexThree,playerIndexFour)
+    console.log(oneBelow, twoBelow, threeBelow, fourBelow)
+
+
+    // console.log(board[board.indexOf(playerIndex) + width])
+    // console.log(Array.from(board[oneBelow].classList).includes('idle'))
+    // console.log(Array.from(board[twoBelow].classList).includes('idle'))
+    // console.log(Array.from(board[threeBelow].classList).includes('idle'))
+    // console.log(Array.from(board[fourBelow].classList).includes('idle'))
+
+    // ){
+    return (Array.from(board[oneBelow].classList).includes('idle')) ||
+    (Array.from(board[twoBelow].classList).includes('idle')) ||
+    (Array.from(board[threeBelow].classList).includes('idle')) ||
+    (Array.from(board[fourBelow].classList).includes('idle'))
+
+    // console.log((board[oneBelow].classList.contains('idle')) ||
+    // (board[twoBelow].classList.contains('idle')) ||
+    // (board[threeBelow].classList.contains('idle')) ||
+    // (board[fourBelow].classList.contains('idle')))
+    //
+    // return (board[oneBelow].classList.contains('idle')) ||
+    // (board[twoBelow].classList.contains('idle')) ||
+    // (board[threeBelow].classList.contains('idle')) ||
+    // (board[fourBelow].classList.contains('idle'))
+  }
+
+
+  // return (board[board.indexOf(playerIndex) + width].classList.includes('idle')  || board[board.indexOf(playerIndexTwo) + width].classList.includes('idle') || board[board.indexOf(playerIndexThree) + width].classList.includes('idle') || board[board.indexOf(playerIndexFour) + width].classList.includes('idle')
+  // )
+
+
+  function stackOnTop(){
+    // idleSpot.forEach(idleSpot => {
+
+
+    board[playerIndex].classList.remove('activeItem')
+    board[playerIndexTwo].classList.remove('activeItem')
+    board[playerIndexThree].classList.remove('activeItem')
+    board[playerIndexFour].classList.remove('activeItem')
+    board[playerIndex].classList.add('idle')
+    board[playerIndexTwo].classList.add('idle')
+    board[playerIndexThree].classList.add('idle')
+    board[playerIndexFour].classList.add('idle')
+  }
+  // })
+  // }
+  // setInterval(stackOnTop, 1000)
 
   function bottomCheck(){
 
@@ -246,8 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // playerIndexThree = 5
       // playerIndexFour = 6
       whatShape()
+      //call new shape
     }
-    //call new shape
   }
 
 
@@ -266,27 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
   const bottomRow = document.querySelectorAll('.bottom-row')
-
-
-  // const idlePositions = idleAround.forEach(idleAround => {
-  //   return parseFloat(board[idleAround.id])
-  // })
-  //
-  // for(let i = 0; i < idleAround; i++){
-  //   return
-  // }
-  //
-  //
-  // console.log(idlePositions)
-
-  // const
-  // board[square.id]
-  // board[square.id + width]
-
-
-  console.log(bottomNums === [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]])
-  console.log(bottomRow)
-
+  // console.log(bottomNums === [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]])
+  // console.log(bottomRow)
 
   function giveScore(){
     let count = 0
@@ -312,16 +350,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setInterval(giveScore, 1000)
-  // function giveScore(){
-  //   if(bottomNums.forEach(bottomRow => bottomRow.classList.contains('idle'))){
-  //     score.innerHTML = parseFloat(score.innerHTML) + 10
-  //     console.log('10 points!')
-  //   }
-  // }
-  // giveScore()
-  //scoreboardsendhelp
-  //scoreboardsendhelp
-
 
 
   //MUSIC SECTION
