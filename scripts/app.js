@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let playerIndexThree
   let playerIndexFour
 
-
-
   // const initialShapes = {
   //   'I': [3,4,5,6],
   //   'Sq': [14,15,5,4],
@@ -81,8 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //   // playerIndexThree = whichOne.playerIndex[2]
   //   // playerIndexFour = whichOne.playerIndex[3]
   //
-  //
-  //
+
   //   switch (whichOne.name){
   //     case 'I':
   //       if(degrees === 90){
@@ -123,14 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // if(degrees === 270){
   //   degrees = 0
   // }
-
-
-
-
-
-
-
-
 
 
 
@@ -278,11 +267,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
   const bottomRow = document.querySelectorAll('.bottom-row')
 
-  const idleAround = document.querySelectorAll('.idle')
-  const idlePositions = idleAround.forEach(idleAround => {
-    return board[idleAround.id]
-  })
 
+  // const idlePositions = idleAround.forEach(idleAround => {
+  //   return parseFloat(board[idleAround.id])
+  // })
+  //
+  // for(let i = 0; i < idleAround; i++){
+  //   return
+  // }
+  //
+  //
+  // console.log(idlePositions)
 
   // const
   // board[square.id]
@@ -295,10 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function giveScore(){
     let count = 0
-    // if(bottomNums.forEach(bottomRow => bottomRow.classList.contains('idle'))){
-    //   score.innerHTML = parseFloat(score.innerHTML) + 10
-    //   console.log('10 points!')
-    // }
+
     bottomNums.forEach(bottomRow => {
       if(bottomRow.classList.contains('idle')) {
         count = count + 1
@@ -310,15 +302,15 @@ document.addEventListener('DOMContentLoaded', () => {
       bottomNums.forEach(bottomRow => {
         bottomRow.classList.remove('idle')
       })
-      // idlePositions.forEach(idleAround => {
-      //
-      //     idleAround.classList.remove('idle')
-      //     board[idleAround.id + width].classList.add('idle')
-      //   }
-      // }
-    }
 
+      const idleAround = document.querySelectorAll('.idle')
+      idleAround.forEach(idleAround => {
+        idleAround.classList.remove('idle')
+        board[board.indexOf(idleAround) + width].classList.add('idle')
+      })
+    }
   }
+
   setInterval(giveScore, 1000)
   // function giveScore(){
   //   if(bottomNums.forEach(bottomRow => bottomRow.classList.contains('idle'))){
