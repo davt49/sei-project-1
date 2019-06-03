@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const height = 20
   const board = []
   const score = document.querySelector('.score')
+  let whichOne
+  const degrees = 0
 
   let playerIndex
   let playerIndexTwo
@@ -12,74 +14,125 @@ document.addEventListener('DOMContentLoaded', () => {
   let playerIndexFour
 
 
-  const shapeI = {
+
+  // const initialShapes = {
+  //   'I': [3,4,5,6],
+  //   'Sq': [14,15,5,4],
+  //   'L': [13,14,15,5],
+  //   'T': [13,14,15,4],
+  //   'J': [13,14,15,3],
+  //   'S': [13,14,5,4],
+  //   'Z': [14,15,4,3]
+  // }
+
+  const I = {
     name: 'I',
-    playerIndex: 3,
-    playerIndexTwo: 4,
-    playerIndexThree: 5,
-    playerIndexFour: 6
-
+    playerIndex: [3,4,5,6]
   }
-  const shapeSq = {
+  const Sq = {
     name: 'Sq',
-    playerIndex: 14,
-    playerIndexTwo: 15,
-    playerIndexThree: 5,
-    playerIndexFour: 4
-
+    playerIndex: [14,15,5,4]
   }
-  const shapeL = {
+  const L = {
     name: 'L',
-    playerIndex: 13,
-    playerIndexTwo: 14,
-    playerIndexThree: 15,
-    playerIndexFour: 5
-
+    playerIndex: [13,14,15,5]
   }
-  const shapeT = {
+  const T = {
     name: 'T',
-    playerIndex: 13,
-    playerIndexTwo: 14,
-    playerIndexThree: 15,
-    playerIndexFour: 4
-
+    playerIndex: [13,14,15,4]
   }
-  const shapeJ = {
+  const J = {
     name: 'J',
-    playerIndex: 13,
-    playerIndexTwo: 14,
-    playerIndexThree: 15,
-    playerIndexFour: 3
-
+    playerIndex: [13,14,15,3]
   }
-  const shapeS = {
+  const S = {
     name: 'S',
-    playerIndex: 13,
-    playerIndexTwo: 14,
-    playerIndexThree: 5,
-    playerIndexFour: 4
-
+    playerIndex: [13,14,5,4]
   }
-  const shapeZ = {
+  const Z = {
     name: 'Z',
-    playerIndex: 14,
-    playerIndexTwo: 15,
-    playerIndexThree: 4,
-    playerIndexFour: 3
-
+    playerIndex: [14,15,4,3]
   }
 
-  const whatShapeArray = [shapeI,shapeSq,shapeL,shapeT,shapeJ,shapeS,shapeZ]
+
+  const whatShapeArray = [I,Sq,L,T,J,S,Z]
+
+
   function whatShape(){
-    const whichOne = whatShapeArray[Math.floor(Math.random() * whatShapeArray.length)]
-    playerIndex= whichOne.playerIndex
-    playerIndexTwo = whichOne.playerIndexTwo
-    playerIndexThree = whichOne.playerIndexThree
-    playerIndexFour = whichOne.playerIndexFour
+
+    whichOne = whatShapeArray[Math.floor(Math.random() * whatShapeArray.length)]
+
+
+    playerIndex= whichOne.playerIndex[0]
+    playerIndexTwo = whichOne.playerIndex[1]
+    playerIndexThree = whichOne.playerIndex[2]
+    playerIndexFour = whichOne.playerIndex[3]
     console.log(whichOne.name)
+
   }
   whatShape()
-  console.log(typeof whatShape())
+
+
+  console.log(whichOne.name,whichOne.playerIndex[0],degrees)
+
+  // function rotate(){
+  //   // playerIndex = whichOne.playerIndex[0]
+  //   // playerIndexTwo = whichOne.playerIndex[1]
+  //   // playerIndexThree = whichOne.playerIndex[2]
+  //   // playerIndexFour = whichOne.playerIndex[3]
+  //
+  //
+  //
+  //   switch (whichOne.name){
+  //     case 'I':
+  //       if(degrees === 90){
+  //         playerIndex = playerIndexThree,
+  //         playerIndexTwo = playerIndexTwo + width + 1,
+  //         playerIndexThree = playerIndexThree + (width * 2),
+  //         playerIndexFour = playerIndexFour + (width * 3) - 1
+  //       } else if(degrees === 180){
+  //         playerIndex = playerIndex + (width * 2) + 1,
+  //         playerIndexTwo = playerIndexTwo + width,
+  //         playerIndexThree = playerIndexThree - 1,
+  //         playerIndexFour = playerIndexFour - width - 2
+  //       } else if(degrees === 270){
+  //         playerIndex = playerIndex + (width * 2) - 2,
+  //         playerIndexTwo = playerIndexTwo + width - 1,
+  //         playerIndexThree = playerIndexThree + 0,
+  //         playerIndexFour = playerIndexFour - width + 1
+  //       }
+  //       break
+  //   }
+  //
+  //   if (degrees !== 270){
+  //     degrees = degrees + 90
+  //   } else {
+  //     degrees = 0
+  //   }
+  // }
+
+  // if(degrees === 0){
+  //   degrees = degrees + 90
+  // }
+  // if(degrees === 90){
+  //   degrees = degrees + 90
+  // }
+  // if(degrees === 180){
+  //   degrees = degrees + 90
+  // }
+  // if(degrees === 270){
+  //   degrees = 0
+  // }
+
+
+
+
+
+
+
+
+
+
 
   function makeGrid(){
     for (let i = 0; i < width * height; i++){
@@ -151,6 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
           bottomCheck()
         }
         break
+        // case 38:
+        //   rotate()
+        //   break
+
       // case 38:
       //   if (playerIndex - width >= 0) {
       //     playerIndex -= width
@@ -205,7 +262,73 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  //scoreboardsendhelp
+  //scoreboardsendhelp
+  board[190].classList.add('bottom-row')
+  board[191].classList.add('bottom-row')
+  board[192].classList.add('bottom-row')
+  board[193].classList.add('bottom-row')
+  board[194].classList.add('bottom-row')
+  board[195].classList.add('bottom-row')
+  board[196].classList.add('bottom-row')
+  board[197].classList.add('bottom-row')
+  board[198].classList.add('bottom-row')
+  board[199].classList.add('bottom-row')
 
+  const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
+  const bottomRow = document.querySelectorAll('.bottom-row')
+
+  const idleAround = document.querySelectorAll('.idle')
+  const idlePositions = idleAround.forEach(idleAround => {
+    return board[idleAround.id]
+  })
+
+
+  // const
+  // board[square.id]
+  // board[square.id + width]
+
+
+  console.log(bottomNums === [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]])
+  console.log(bottomRow)
+
+
+  function giveScore(){
+    let count = 0
+    // if(bottomNums.forEach(bottomRow => bottomRow.classList.contains('idle'))){
+    //   score.innerHTML = parseFloat(score.innerHTML) + 10
+    //   console.log('10 points!')
+    // }
+    bottomNums.forEach(bottomRow => {
+      if(bottomRow.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      bottomNums.forEach(bottomRow => {
+        bottomRow.classList.remove('idle')
+      })
+      // idlePositions.forEach(idleAround => {
+      //
+      //     idleAround.classList.remove('idle')
+      //     board[idleAround.id + width].classList.add('idle')
+      //   }
+      // }
+    }
+
+  }
+  setInterval(giveScore, 1000)
+  // function giveScore(){
+  //   if(bottomNums.forEach(bottomRow => bottomRow.classList.contains('idle'))){
+  //     score.innerHTML = parseFloat(score.innerHTML) + 10
+  //     console.log('10 points!')
+  //   }
+  // }
+  // giveScore()
+  //scoreboardsendhelp
+  //scoreboardsendhelp
 
 
 
@@ -228,34 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //MUSIC SECTION
 
 
-  //scoreboardsendhelp
-  //scoreboardsendhelp
-  board[190].classList.add('bottom-row')
-  board[191].classList.add('bottom-row')
-  board[192].classList.add('bottom-row')
-  board[193].classList.add('bottom-row')
-  board[194].classList.add('bottom-row')
-  board[195].classList.add('bottom-row')
-  board[196].classList.add('bottom-row')
-  board[197].classList.add('bottom-row')
-  board[198].classList.add('bottom-row')
-  board[199].classList.add('bottom-row')
 
-  const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
-  const bottomRow = document.querySelectorAll('.bottom-row')
-
-  console.log(bottomNums === [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]])
-  console.log(bottomRow)
-
-  function giveScore(){
-    if(bottomNums.forEach(bottomRow => bottomRow.classList.contains('idle'))){
-      score.innerHTML = parseFloat(score.innerHTML) + 10
-      console.log('10 points!')
-    }
-  }
-  giveScore()
-  //scoreboardsendhelp
-  //scoreboardsendhelp
 
 
 
