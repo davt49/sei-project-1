@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (Array.from(board[twoBelow].classList).includes('idle')) ||
     (Array.from(board[threeBelow].classList).includes('idle')) ||
     (Array.from(board[fourBelow].classList).includes('idle'))) {
-      console.log('found the bottom')
+      console.log('found idle below')
       return true
       // board[playerIndex].classList.remove('activeItem')
       // board[playerIndexTwo].classList.remove('activeItem')
@@ -244,7 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('cant go down')
       changeClass()
     }
-
     // }
   }
   setInterval(slowDrop, 1000)
@@ -297,7 +296,8 @@ document.addEventListener('DOMContentLoaded', () => {
       //   }
       //   break
       case 40:
-        if (playerIndex + width < width * height) {
+        // if (playerIndex + width < width * height ) {
+        if (bottomCheck() === false && idleCheck() === false) {
           playerIndex += width
           playerIndexTwo += width
           playerIndexThree += width
@@ -308,16 +308,13 @@ document.addEventListener('DOMContentLoaded', () => {
           board[playerIndexTwo].classList.add('activeItem')
           board[playerIndexThree].classList.add('activeItem')
           board[playerIndexFour].classList.add('activeItem')
-          bottomCheck()
         }
         break
       default:
 
     }
     console.log(playerIndex, playerIndexTwo, playerIndexThree, playerIndexFour)
-
   }
-
 
 
   function giveScore(){
