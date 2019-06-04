@@ -67,15 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
     playerIndexFour = whichOne.playerIndex[3]
     console.log(whichOne.name)
 
+    board[playerIndex].classList.add('activeItem')
+    board[playerIndexTwo].classList.add('activeItem')
+    board[playerIndexThree].classList.add('activeItem')
+    board[playerIndexFour].classList.add('activeItem')
   }
   whatShape()
 
   console.log(whichOne.name,whichOne.playerIndex[0],degrees)
 
-  board[playerIndex].classList.add('activeItem')
-  board[playerIndexTwo].classList.add('activeItem')
-  board[playerIndexThree].classList.add('activeItem')
-  board[playerIndexFour].classList.add('activeItem')
+
+
 
   // function rotate(){
   //   // playerIndex = whichOne.playerIndex[0]
@@ -125,27 +127,124 @@ document.addEventListener('DOMContentLoaded', () => {
   //   degrees = 0
   // }
 
+
+  function idleCheck(){
+    const oneBelow = playerIndex + width
+    const twoBelow = playerIndexTwo + width
+    const threeBelow = playerIndexThree + width
+    const fourBelow = playerIndexFour + width
+    // console.log(playerIndex, playerIndexTwo,playerIndexThree,playerIndexFour)
+    // console.log(oneBelow, twoBelow, threeBelow, fourBelow)
+    // ){
+    if ((Array.from(board[oneBelow].classList).includes('idle')) ||
+    (Array.from(board[twoBelow].classList).includes('idle')) ||
+    (Array.from(board[threeBelow].classList).includes('idle')) ||
+    (Array.from(board[fourBelow].classList).includes('idle'))) {
+      console.log('found the bottom')
+      return true
+      // board[playerIndex].classList.remove('activeItem')
+      // board[playerIndexTwo].classList.remove('activeItem')
+      // board[playerIndexThree].classList.remove('activeItem')
+      // board[playerIndexFour].classList.remove('activeItem')
+      // board[playerIndex].classList.add('idle')
+      // board[playerIndexTwo].classList.add('idle')
+      // board[playerIndexThree].classList.add('idle')
+      // board[playerIndexFour].classList.add('idle')
+    } else {
+      return false
+    }
+
+  }
+
+  // function stackOnTop(){
+  //   // idleSpot.forEach(idleSpot => {
+  //
+  // }
+  // })
+  // }
+  // setInterval(stackOnTop, 1000)
+
+  function bottomCheck(){
+    if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199 || playerIndexTwo === 190 || playerIndexTwo === 191 || playerIndexTwo === 192 || playerIndexTwo === 193 || playerIndexTwo === 194 || playerIndexTwo === 195 || playerIndexTwo === 196|| playerIndexTwo === 197|| playerIndexTwo === 198|| playerIndexTwo === 199 || playerIndexThree === 190 || playerIndexThree === 191 || playerIndexThree === 192 || playerIndexThree === 193 || playerIndexThree === 194 || playerIndexThree === 195 || playerIndexThree === 196|| playerIndexThree === 197|| playerIndexThree === 198|| playerIndexThree === 199 || playerIndexFour === 190 || playerIndexFour === 191 || playerIndexFour === 192 || playerIndexFour === 193 || playerIndexFour === 194 || playerIndexFour === 195 || playerIndexFour === 196|| playerIndexFour === 197|| playerIndexFour === 198|| playerIndexFour === 199){
+      console.log('found the bottom')
+      return true
+      // board[playerIndex].classList.remove('activeItem')
+      // board[playerIndexTwo].classList.remove('activeItem')
+      // board[playerIndexThree].classList.remove('activeItem')
+      // board[playerIndexFour].classList.remove('activeItem')
+      // board[playerIndex].classList.add('idle')
+      // board[playerIndexTwo].classList.add('idle')
+      // board[playerIndexThree].classList.add('idle')
+      // board[playerIndexFour].classList.add('idle')
+      //
+      // whatShape()
+      //call new shape
+    } else {
+      return false
+    }
+  }
+
+  function changeClass(){
+    board[playerIndex].classList.remove('activeItem')
+    board[playerIndexTwo].classList.remove('activeItem')
+    board[playerIndexThree].classList.remove('activeItem')
+    board[playerIndexFour].classList.remove('activeItem')
+    board[playerIndex].classList.add('idle')
+    board[playerIndexTwo].classList.add('idle')
+    board[playerIndexThree].classList.add('idle')
+    board[playerIndexFour].classList.add('idle')
+
+    setTimeout(whatShape, 500)
+  }
+
+
+  //scoreboardsendhelp
+  //scoreboardsendhelp
+  board[190].classList.add('bottom-row')
+  board[191].classList.add('bottom-row')
+  board[192].classList.add('bottom-row')
+  board[193].classList.add('bottom-row')
+  board[194].classList.add('bottom-row')
+  board[195].classList.add('bottom-row')
+  board[196].classList.add('bottom-row')
+  board[197].classList.add('bottom-row')
+  board[198].classList.add('bottom-row')
+  board[199].classList.add('bottom-row')
+
+  const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
+  const bottomRow = document.querySelectorAll('.bottom-row')
+
   function slowDrop(){
-    // cantGoDown()
-    // if (cantGoDown === true){
+    //
+    // if (idleCheck === true){
     //   console.log('stackOnTop')
     //   stackOnTop()
     // } else{
+    // idleCheck()
+    // bottomCheck()
+    // console.log(idleCheck())
+    // console.log(bottomCheck())
     console.log('check now if the move will be possible')
-    bottomCheck()
-    playerIndex += width
-    playerIndexTwo += width
-    playerIndexThree += width
-    playerIndexFour += width
+    if (bottomCheck() === false && idleCheck() === false){
 
-    board.forEach(square => square.classList.remove('activeItem'))
+      playerIndex += width
+      playerIndexTwo += width
+      playerIndexThree += width
+      playerIndexFour += width
 
-    board[playerIndex].classList.add('activeItem')
-    board[playerIndexTwo].classList.add('activeItem')
-    board[playerIndexThree].classList.add('activeItem')
-    board[playerIndexFour].classList.add('activeItem')
-    cantGoDown()
-    bottomCheck()
+      board.forEach(square => square.classList.remove('activeItem'))
+
+      board[playerIndex].classList.add('activeItem')
+      board[playerIndexTwo].classList.add('activeItem')
+      board[playerIndexThree].classList.add('activeItem')
+      board[playerIndexFour].classList.add('activeItem')
+
+
+    } else {
+      console.log('cant go down')
+      changeClass()
+    }
+
     // }
   }
   setInterval(slowDrop, 1000)
@@ -167,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
           board[playerIndexTwo].classList.add('activeItem')
           board[playerIndexThree].classList.add('activeItem')
           board[playerIndexFour].classList.add('activeItem')
-          bottomCheck()
+
         }
         break
       case 37:
@@ -182,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
           board[playerIndexTwo].classList.add('activeItem')
           board[playerIndexThree].classList.add('activeItem')
           board[playerIndexFour].classList.add('activeItem')
-          bottomCheck()
+
         }
         break
         // case 38:
@@ -220,72 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  function cantGoDown(){
-    const oneBelow = playerIndex + width
-    const twoBelow = playerIndexTwo + width
-    const threeBelow = playerIndexThree + width
-    const fourBelow = playerIndexFour + width
-    // console.log(playerIndex, playerIndexTwo,playerIndexThree,playerIndexFour)
-    // console.log(oneBelow, twoBelow, threeBelow, fourBelow)
-    // ){
-    if ((Array.from(board[oneBelow].classList).includes('idle')) ||
-    (Array.from(board[twoBelow].classList).includes('idle')) ||
-    (Array.from(board[threeBelow].classList).includes('idle')) ||
-    (Array.from(board[fourBelow].classList).includes('idle'))) {
-      console.log('found the bottom')
-      board[playerIndex].classList.remove('activeItem')
-      board[playerIndexTwo].classList.remove('activeItem')
-      board[playerIndexThree].classList.remove('activeItem')
-      board[playerIndexFour].classList.remove('activeItem')
-      board[playerIndex].classList.add('idle')
-      board[playerIndexTwo].classList.add('idle')
-      board[playerIndexThree].classList.add('idle')
-      board[playerIndexFour].classList.add('idle')
-    }
-
-  }
-
-  // function stackOnTop(){
-  //   // idleSpot.forEach(idleSpot => {
-  //
-  // }
-  // })
-  // }
-  // setInterval(stackOnTop, 1000)
-
-  function bottomCheck(){
-    if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199 || playerIndexTwo === 190 || playerIndexTwo === 191 || playerIndexTwo === 192 || playerIndexTwo === 193 || playerIndexTwo === 194 || playerIndexTwo === 195 || playerIndexTwo === 196|| playerIndexTwo === 197|| playerIndexTwo === 198|| playerIndexTwo === 199 || playerIndexThree === 190 || playerIndexThree === 191 || playerIndexThree === 192 || playerIndexThree === 193 || playerIndexThree === 194 || playerIndexThree === 195 || playerIndexThree === 196|| playerIndexThree === 197|| playerIndexThree === 198|| playerIndexThree === 199 || playerIndexFour === 190 || playerIndexFour === 191 || playerIndexFour === 192 || playerIndexFour === 193 || playerIndexFour === 194 || playerIndexFour === 195 || playerIndexFour === 196|| playerIndexFour === 197|| playerIndexFour === 198|| playerIndexFour === 199){
-      console.log('found the bottom')
-      board[playerIndex].classList.remove('activeItem')
-      board[playerIndexTwo].classList.remove('activeItem')
-      board[playerIndexThree].classList.remove('activeItem')
-      board[playerIndexFour].classList.remove('activeItem')
-      board[playerIndex].classList.add('idle')
-      board[playerIndexTwo].classList.add('idle')
-      board[playerIndexThree].classList.add('idle')
-      board[playerIndexFour].classList.add('idle')
-
-      whatShape()
-      //call new shape
-    }
-  }
-
-
-  //scoreboardsendhelp
-  //scoreboardsendhelp
-  board[190].classList.add('bottom-row')
-  board[191].classList.add('bottom-row')
-  board[192].classList.add('bottom-row')
-  board[193].classList.add('bottom-row')
-  board[194].classList.add('bottom-row')
-  board[195].classList.add('bottom-row')
-  board[196].classList.add('bottom-row')
-  board[197].classList.add('bottom-row')
-  board[198].classList.add('bottom-row')
-  board[199].classList.add('bottom-row')
-
-  const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
-  const bottomRow = document.querySelectorAll('.bottom-row')
 
   function giveScore(){
     let count = 0
