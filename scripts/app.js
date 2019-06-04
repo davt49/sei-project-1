@@ -13,15 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let playerIndexThree
   let playerIndexFour
 
-  // const initialShapes = {
-  //   'I': [3,4,5,6],
-  //   'Sq': [14,15,5,4],
-  //   'L': [13,14,15,5],
-  //   'T': [13,14,15,4],
-  //   'J': [13,14,15,3],
-  //   'S': [13,14,5,4],
-  //   'Z': [14,15,4,3]
-  // }
+  function makeGrid(){
+    for (let i = 0; i < width * height; i++){
+      const square = document.createElement('div')
+      square.classList.add('grid-item')
+      square.setAttribute('id',`${i}`)
+      square.innerHTML = i
+      board.push(square)
+      grid.append(square)
+    }
+  }
+
+  makeGrid()
 
   const I = {
     name: 'I',
@@ -58,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     whichOne = whatShapeArray[Math.floor(Math.random() * whatShapeArray.length)]
 
-
     playerIndex= whichOne.playerIndex[0]
     playerIndexTwo = whichOne.playerIndex[1]
     playerIndexThree = whichOne.playerIndex[2]
@@ -69,6 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
   whatShape()
 
   console.log(whichOne.name,whichOne.playerIndex[0],degrees)
+
+  board[playerIndex].classList.add('activeItem')
+  board[playerIndexTwo].classList.add('activeItem')
+  board[playerIndexThree].classList.add('activeItem')
+  board[playerIndexFour].classList.add('activeItem')
 
   // function rotate(){
   //   // playerIndex = whichOne.playerIndex[0]
@@ -118,32 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
   //   degrees = 0
   // }
 
-
-
-  function makeGrid(){
-    for (let i = 0; i < width * height; i++){
-      const square = document.createElement('div')
-      square.classList.add('grid-item')
-      square.setAttribute('id',`${i}`)
-      square.innerHTML = i
-      board.push(square)
-      grid.append(square)
-    }
-  }
-
-  makeGrid()
-
-  board[playerIndex].classList.add('activeItem')
-  board[playerIndexTwo].classList.add('activeItem')
-  board[playerIndexThree].classList.add('activeItem')
-  board[playerIndexFour].classList.add('activeItem')
-
   function slowDrop(){
     // cantGoDown()
     // if (cantGoDown === true){
     //   console.log('stackOnTop')
     //   stackOnTop()
     // } else{
+    console.log('check now if the move will be possible')
+    bottomCheck()
     playerIndex += width
     playerIndexTwo += width
     playerIndexThree += width
@@ -155,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     board[playerIndexTwo].classList.add('activeItem')
     board[playerIndexThree].classList.add('activeItem')
     board[playerIndexFour].classList.add('activeItem')
+    cantGoDown()
     bottomCheck()
     // }
   }
@@ -229,66 +219,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  // true go down
-  // false
 
   function cantGoDown(){
     const oneBelow = playerIndex + width
     const twoBelow = playerIndexTwo + width
     const threeBelow = playerIndexThree + width
     const fourBelow = playerIndexFour + width
-    console.log(playerIndex, playerIndexTwo,playerIndexThree,playerIndexFour)
-    console.log(oneBelow, twoBelow, threeBelow, fourBelow)
-
-
-    // console.log(board[board.indexOf(playerIndex) + width])
-    // console.log(Array.from(board[oneBelow].classList).includes('idle'))
-    // console.log(Array.from(board[twoBelow].classList).includes('idle'))
-    // console.log(Array.from(board[threeBelow].classList).includes('idle'))
-    // console.log(Array.from(board[fourBelow].classList).includes('idle'))
-
+    // console.log(playerIndex, playerIndexTwo,playerIndexThree,playerIndexFour)
+    // console.log(oneBelow, twoBelow, threeBelow, fourBelow)
     // ){
-    return (Array.from(board[oneBelow].classList).includes('idle')) ||
+    if ((Array.from(board[oneBelow].classList).includes('idle')) ||
     (Array.from(board[twoBelow].classList).includes('idle')) ||
     (Array.from(board[threeBelow].classList).includes('idle')) ||
-    (Array.from(board[fourBelow].classList).includes('idle'))
+    (Array.from(board[fourBelow].classList).includes('idle'))) {
+      console.log('found the bottom')
+      board[playerIndex].classList.remove('activeItem')
+      board[playerIndexTwo].classList.remove('activeItem')
+      board[playerIndexThree].classList.remove('activeItem')
+      board[playerIndexFour].classList.remove('activeItem')
+      board[playerIndex].classList.add('idle')
+      board[playerIndexTwo].classList.add('idle')
+      board[playerIndexThree].classList.add('idle')
+      board[playerIndexFour].classList.add('idle')
+    }
 
-    // console.log((board[oneBelow].classList.contains('idle')) ||
-    // (board[twoBelow].classList.contains('idle')) ||
-    // (board[threeBelow].classList.contains('idle')) ||
-    // (board[fourBelow].classList.contains('idle')))
-    //
-    // return (board[oneBelow].classList.contains('idle')) ||
-    // (board[twoBelow].classList.contains('idle')) ||
-    // (board[threeBelow].classList.contains('idle')) ||
-    // (board[fourBelow].classList.contains('idle'))
   }
 
-
-  // return (board[board.indexOf(playerIndex) + width].classList.includes('idle')  || board[board.indexOf(playerIndexTwo) + width].classList.includes('idle') || board[board.indexOf(playerIndexThree) + width].classList.includes('idle') || board[board.indexOf(playerIndexFour) + width].classList.includes('idle')
-  // )
-
-
-  function stackOnTop(){
-    // idleSpot.forEach(idleSpot => {
-
-
-    board[playerIndex].classList.remove('activeItem')
-    board[playerIndexTwo].classList.remove('activeItem')
-    board[playerIndexThree].classList.remove('activeItem')
-    board[playerIndexFour].classList.remove('activeItem')
-    board[playerIndex].classList.add('idle')
-    board[playerIndexTwo].classList.add('idle')
-    board[playerIndexThree].classList.add('idle')
-    board[playerIndexFour].classList.add('idle')
-  }
+  // function stackOnTop(){
+  //   // idleSpot.forEach(idleSpot => {
+  //
+  // }
   // })
   // }
   // setInterval(stackOnTop, 1000)
 
   function bottomCheck(){
-
-    if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199){
+    if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199 || playerIndexTwo === 190 || playerIndexTwo === 191 || playerIndexTwo === 192 || playerIndexTwo === 193 || playerIndexTwo === 194 || playerIndexTwo === 195 || playerIndexTwo === 196|| playerIndexTwo === 197|| playerIndexTwo === 198|| playerIndexTwo === 199 || playerIndexThree === 190 || playerIndexThree === 191 || playerIndexThree === 192 || playerIndexThree === 193 || playerIndexThree === 194 || playerIndexThree === 195 || playerIndexThree === 196|| playerIndexThree === 197|| playerIndexThree === 198|| playerIndexThree === 199 || playerIndexFour === 190 || playerIndexFour === 191 || playerIndexFour === 192 || playerIndexFour === 193 || playerIndexFour === 194 || playerIndexFour === 195 || playerIndexFour === 196|| playerIndexFour === 197|| playerIndexFour === 198|| playerIndexFour === 199){
+      console.log('found the bottom')
       board[playerIndex].classList.remove('activeItem')
       board[playerIndexTwo].classList.remove('activeItem')
       board[playerIndexThree].classList.remove('activeItem')
@@ -298,10 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
       board[playerIndexThree].classList.add('idle')
       board[playerIndexFour].classList.add('idle')
 
-      // playerIndex = 3
-      // playerIndexTwo = 4
-      // playerIndexThree = 5
-      // playerIndexFour = 6
       whatShape()
       //call new shape
     }
@@ -323,8 +286,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const bottomNums = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
   const bottomRow = document.querySelectorAll('.bottom-row')
-  // console.log(bottomNums === [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]])
-  // console.log(bottomRow)
 
   function giveScore(){
     let count = 0
@@ -369,10 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   //MUSIC SECTION
   //MUSIC SECTION
-
-
-
-
 
 
   window.addEventListener('keydown', handleKeyDown)
