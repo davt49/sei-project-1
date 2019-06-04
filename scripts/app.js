@@ -104,6 +104,64 @@ document.addEventListener('DOMContentLoaded', () => {
           playerIndexThree = playerIndexThree - 9
           playerIndexFour = playerIndexFour + 2
         }
+        break
+      case 'L':
+        if(degrees === 0){
+          degrees = degrees + 90
+          playerIndex = playerIndex - 9
+          // playerIndexTwo = playerIndexTwo + 1
+          playerIndexThree = playerIndexThree + 9
+          playerIndexFour = playerIndexFour + 20
+        } else if (degrees === 90){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 11
+          // playerIndexTwo = playerIndexTwo + 10
+          playerIndexThree = playerIndexThree - 11
+          playerIndexFour = playerIndexFour - 2
+        } else if (degrees === 180){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 9
+          // playerIndexTwo = playerIndexTwo - 1
+          playerIndexThree = playerIndexThree - 9
+          playerIndexFour = playerIndexFour - 20
+        } else if (degrees === 270){
+          degrees = degrees - 270
+          playerIndex = playerIndex - 11
+          // playerIndexTwo = playerIndexTwo - 20
+          playerIndexThree = playerIndexThree + 11
+          playerIndexFour = playerIndexFour + 2
+        }
+        break
+      case 'T':
+        if(degrees === 0){
+          degrees = degrees + 90
+          playerIndex = playerIndex - 9
+          // playerIndexTwo = playerIndexTwo + 1
+          playerIndexThree = playerIndexThree + 9
+          playerIndexFour = playerIndexFour + 11
+        } else if (degrees === 90){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 11
+          // playerIndexTwo = playerIndexTwo + 10
+          playerIndexThree = playerIndexThree - 11
+          playerIndexFour = playerIndexFour + 9
+        } else if (degrees === 180){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 9
+          // playerIndexTwo = playerIndexTwo - 1
+          playerIndexThree = playerIndexThree - 9
+          playerIndexFour = playerIndexFour - 11
+        } else if (degrees === 270){
+          degrees = degrees - 270
+          playerIndex = playerIndex - 11
+          // playerIndexTwo = playerIndexTwo - 20
+          playerIndexThree = playerIndexThree + 11
+          playerIndexFour = playerIndexFour - 9
+        }
+
+
+
+
     }
   }
 
