@@ -1,6 +1,11 @@
 body{
-
+  background-color: lightsteelblue;
+  /* background-image: url('../pics/oldLondonCoffeeHouse.jpg'); */
+  /* background-image: url('https://media0.giphy.com/media/1PMVNNKVIL8Ig/giphy.gif?cid=790b76115cf67e014967396d41b112c5&rid=giphy.gif'); */
+  background-repeat: no-repeat;
+  background-size: 1528px 736px;
 }
+/* /Users/davidtsui/development/projects/sei-project-1/pics/oldLondonCoffeeHouse.jpg */
 
 section{
   display: flex;
@@ -13,6 +18,12 @@ section{
   width: 350px;
   margin: 0 auto;
 }
+
+.about{
+  text-align: center;
+  margin-top: 50px;
+}
+
 .scoreboard, .highscoreboard{
   text-align: center;
   height: 30px;
@@ -20,10 +31,31 @@ section{
   padding: 2px;
   margin: 2px;
   border: 1px solid forestgreen;
+  background-color: navy;
+  color: white;
 }
 
-.music, .stopMusic{
+.music-title{
   text-align: center;
+
+}
+.music-buttons{
+  display: flex;
+}
+
+
+.music{
+
+  align-self: flex-start;
+  height: 40px;
+  width: 40px;
+  padding: 2px;
+  margin: 2px;
+  border: 1px solid forestgreen;
+}
+.stopMusic{
+
+  align-self: flex-end;
   height: 40px;
   width: 40px;
   padding: 2px;

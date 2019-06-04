@@ -337,6 +337,9 @@ document.addEventListener('DOMContentLoaded', () => {
         idleAround.classList.remove('idle')
         board[board.indexOf(idleAround) + width].classList.add('idle')
       })
+
+      audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+      audio.play()
     }
   }
 
