@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const height = 20
   const board = []
   const score = document.querySelector('.score')
-  let whichOne
-  const degrees = 0
 
   let playerIndex
   let playerIndexTwo
@@ -28,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const I = {
     name: 'I',
-    playerIndex: [3,4,5,6]
+    playerIndex: [13,14,15,16]
   }
   const Sq = {
     name: 'Sq',
@@ -48,18 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const S = {
     name: 'S',
-    playerIndex: [13,14,5,4]
+    playerIndex: [13,14,4,5]
   }
   const Z = {
     name: 'Z',
-    playerIndex: [14,15,4,3]
+    playerIndex: [3,4,14,15]
   }
 
   const whatShapeArray = [I,Sq,L,T,J,S,Z]
+  let whichOne
+  let degrees = 0
+
 
   function whatShape(){
 
     whichOne = whatShapeArray[Math.floor(Math.random() * whatShapeArray.length)]
+    console.log(whichOne.name,whichOne.playerIndex[0],degrees)
 
     playerIndex= whichOne.playerIndex[0]
     playerIndexTwo = whichOne.playerIndex[1]
@@ -74,17 +76,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   whatShape()
 
-  console.log(whichOne.name,whichOne.playerIndex[0],degrees)
+  function rotate(){
+    switch (whichOne.name){
+      case 'I':
+        if(degrees === 0){
+          degrees = degrees + 90
+          playerIndex = playerIndex - 8
+          playerIndexTwo = playerIndexTwo + 1
+          playerIndexThree = playerIndexThree + 10
+          playerIndexFour = playerIndexFour + 19
+        } else if (degrees === 90){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 21
+          playerIndexTwo = playerIndexTwo + 10
+          playerIndexThree = playerIndexThree - 1
+          playerIndexFour = playerIndexFour - 12
+        } else if (degrees === 180){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 8
+          playerIndexTwo = playerIndexTwo - 1
+          playerIndexThree = playerIndexThree - 10
+          playerIndexFour = playerIndexFour - 19
+        } else if (degrees === 270){
+          degrees = degrees - 270
+          playerIndex = playerIndex - 31
+          playerIndexTwo = playerIndexTwo - 20
+          playerIndexThree = playerIndexThree - 9
+          playerIndexFour = playerIndexFour + 2
+        }
+    }
+  }
 
 
 
 
   // function rotate(){
-  //   // playerIndex = whichOne.playerIndex[0]
-  //   // playerIndexTwo = whichOne.playerIndex[1]
-  //   // playerIndexThree = whichOne.playerIndex[2]
-  //   // playerIndexFour = whichOne.playerIndex[3]
-  //
 
   //   switch (whichOne.name){
   //     case 'I':
@@ -135,50 +161,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const fourBelow = playerIndexFour + width
     // console.log(playerIndex, playerIndexTwo,playerIndexThree,playerIndexFour)
     // console.log(oneBelow, twoBelow, threeBelow, fourBelow)
-    // ){
+
     if ((Array.from(board[oneBelow].classList).includes('idle')) ||
     (Array.from(board[twoBelow].classList).includes('idle')) ||
     (Array.from(board[threeBelow].classList).includes('idle')) ||
     (Array.from(board[fourBelow].classList).includes('idle'))) {
       console.log('found idle below')
       return true
-      // board[playerIndex].classList.remove('activeItem')
-      // board[playerIndexTwo].classList.remove('activeItem')
-      // board[playerIndexThree].classList.remove('activeItem')
-      // board[playerIndexFour].classList.remove('activeItem')
-      // board[playerIndex].classList.add('idle')
-      // board[playerIndexTwo].classList.add('idle')
-      // board[playerIndexThree].classList.add('idle')
-      // board[playerIndexFour].classList.add('idle')
+
     } else {
       return false
     }
 
   }
 
-  // function stackOnTop(){
-  //   // idleSpot.forEach(idleSpot => {
-  //
-  // }
-  // })
-  // }
-  // setInterval(stackOnTop, 1000)
-
   function bottomCheck(){
     if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199 || playerIndexTwo === 190 || playerIndexTwo === 191 || playerIndexTwo === 192 || playerIndexTwo === 193 || playerIndexTwo === 194 || playerIndexTwo === 195 || playerIndexTwo === 196|| playerIndexTwo === 197|| playerIndexTwo === 198|| playerIndexTwo === 199 || playerIndexThree === 190 || playerIndexThree === 191 || playerIndexThree === 192 || playerIndexThree === 193 || playerIndexThree === 194 || playerIndexThree === 195 || playerIndexThree === 196|| playerIndexThree === 197|| playerIndexThree === 198|| playerIndexThree === 199 || playerIndexFour === 190 || playerIndexFour === 191 || playerIndexFour === 192 || playerIndexFour === 193 || playerIndexFour === 194 || playerIndexFour === 195 || playerIndexFour === 196|| playerIndexFour === 197|| playerIndexFour === 198|| playerIndexFour === 199){
       console.log('found the bottom')
       return true
-      // board[playerIndex].classList.remove('activeItem')
-      // board[playerIndexTwo].classList.remove('activeItem')
-      // board[playerIndexThree].classList.remove('activeItem')
-      // board[playerIndexFour].classList.remove('activeItem')
-      // board[playerIndex].classList.add('idle')
-      // board[playerIndexTwo].classList.add('idle')
-      // board[playerIndexThree].classList.add('idle')
-      // board[playerIndexFour].classList.add('idle')
-      //
-      // whatShape()
-      //call new shape
+
     } else {
       return false
     }
@@ -215,15 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bottomRow = document.querySelectorAll('.bottom-row')
 
   function slowDrop(){
-    //
-    // if (idleCheck === true){
-    //   console.log('stackOnTop')
-    //   stackOnTop()
-    // } else{
-    // idleCheck()
-    // bottomCheck()
-    // console.log(idleCheck())
-    // console.log(bottomCheck())
+
     console.log('check now if the move will be possible')
     if (bottomCheck() === false && idleCheck() === false){
 
@@ -283,9 +276,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
         break
-        // case 38:
-        //   rotate()
-        //   break
+      case 38:
+        rotate()
+        break
 
       // case 38:
       //   if (playerIndex - width >= 0) {
