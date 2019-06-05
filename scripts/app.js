@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const Z = {
     name: 'Z',
-    playerIndex: [3,4,14,15]
+    playerIndex: [13,14,24,25]
   }
 
   const whatShapeArray = [I,Sq,L,T,J,S,Z]
@@ -61,13 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function whatShape(){
 
     whichOne = whatShapeArray[Math.floor(Math.random() * whatShapeArray.length)]
-    console.log(whichOne.name,whichOne.playerIndex[0],degrees)
+
 
     playerIndex= whichOne.playerIndex[0]
     playerIndexTwo = whichOne.playerIndex[1]
     playerIndexThree = whichOne.playerIndex[2]
     playerIndexFour = whichOne.playerIndex[3]
     console.log(whichOne.name)
+    degrees = 0
 
     board[playerIndex].classList.add('activeItem')
     board[playerIndexTwo].classList.add('activeItem')
@@ -158,9 +159,88 @@ document.addEventListener('DOMContentLoaded', () => {
           playerIndexThree = playerIndexThree + 11
           playerIndexFour = playerIndexFour - 9
         }
-
-
-
+        break
+      case 'J':
+        if(degrees === 0){
+          degrees = degrees + 90
+          playerIndex = playerIndex - 9
+          // playerIndexTwo = playerIndexTwo + 1
+          playerIndexThree = playerIndexThree + 9
+          playerIndexFour = playerIndexFour + 2
+        } else if (degrees === 90){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 11
+          // playerIndexTwo = playerIndexTwo + 10
+          playerIndexThree = playerIndexThree - 11
+          playerIndexFour = playerIndexFour + 20
+        } else if (degrees === 180){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 9
+          // playerIndexTwo = playerIndexTwo - 1
+          playerIndexThree = playerIndexThree - 9
+          playerIndexFour = playerIndexFour - 2
+        } else if (degrees === 270){
+          degrees = degrees - 270
+          playerIndex = playerIndex - 11
+          // playerIndexTwo = playerIndexTwo - 20
+          playerIndexThree = playerIndexThree + 11
+          playerIndexFour = playerIndexFour - 20
+        }
+        break
+      case 'S':
+        if(degrees === 0){
+          degrees = degrees + 90
+          playerIndex = playerIndex - 9
+          // playerIndexTwo = playerIndexTwo + 1
+          playerIndexThree = playerIndexThree + 11
+          playerIndexFour = playerIndexFour + 20
+        } else if (degrees === 90){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 11
+          // playerIndexTwo = playerIndexTwo + 10
+          playerIndexThree = playerIndexThree + 9
+          playerIndexFour = playerIndexFour - 2
+        } else if (degrees === 180){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 9
+          // playerIndexTwo = playerIndexTwo - 1
+          playerIndexThree = playerIndexThree - 11
+          playerIndexFour = playerIndexFour - 20
+        } else if (degrees === 270){
+          degrees = degrees - 270
+          playerIndex = playerIndex - 11
+          // playerIndexTwo = playerIndexTwo - 20
+          playerIndexThree = playerIndexThree - 9
+          playerIndexFour = playerIndexFour + 2
+        }
+        break
+      case 'Z':
+        if(degrees === 0){
+          degrees = degrees + 90
+          playerIndex = playerIndex - 9
+          // playerIndexTwo = playerIndexTwo + 1
+          playerIndexThree = playerIndexThree - 11
+          playerIndexFour = playerIndexFour - 2
+        } else if (degrees === 90){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 11
+          // playerIndexTwo = playerIndexTwo + 10
+          playerIndexThree = playerIndexThree - 9
+          playerIndexFour = playerIndexFour - 20
+        } else if (degrees === 180){
+          degrees = degrees + 90
+          playerIndex = playerIndex + 9
+          // playerIndexTwo = playerIndexTwo - 1
+          playerIndexThree = playerIndexThree + 11
+          playerIndexFour = playerIndexFour + 2
+        } else if (degrees === 270){
+          degrees = degrees - 270
+          playerIndex = playerIndex - 11
+          // playerIndexTwo = playerIndexTwo - 20
+          playerIndexThree = playerIndexThree + 9
+          playerIndexFour = playerIndexFour + 20
+        }
+        break
 
     }
   }
@@ -253,7 +333,8 @@ document.addEventListener('DOMContentLoaded', () => {
     board[playerIndexThree].classList.add('idle')
     board[playerIndexFour].classList.add('idle')
 
-    setTimeout(whatShape, 500)
+    whatShape()
+    // setTimeout(whatShape, 500)
   }
 
 
@@ -335,6 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         break
       case 38:
+        console.log(whichOne.name,whichOne.playerIndex[0],degrees)
         rotate()
         break
 
@@ -389,8 +471,8 @@ document.addEventListener('DOMContentLoaded', () => {
         board[board.indexOf(idleAround) + width].classList.add('idle')
       })
 
-      audio.src = tracks[Math.floor(Math.random() * tracks.length)]
-      audio.play()
+      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+      // audio.play()
     }
   }
 
