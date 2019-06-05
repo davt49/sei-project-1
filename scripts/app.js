@@ -814,11 +814,46 @@ document.addEventListener('DOMContentLoaded', () => {
       // audio.play()
     }
   }
+  function giveScoreFifteen(){
+    let count = 0
+
+    line15.forEach(fifteen => {
+      if(fifteen.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line15.forEach(fifteen => {
+        fifteen.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+
+      board.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      board.forEach(square => {
+        square.classList.remove('idle')
+      })
+
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+      // audio.play()
+    }
+  }
 
   setInterval(giveScoreNineteen, 1000)
   setInterval(giveScoreEighteen, 1000)
   setInterval(giveScoreSeventeen, 1000)
   setInterval(giveScoreSixteen, 1000)
+  setInterval(giveScoreFifteen, 1000)
 
 
   //MUSIC SECTION
