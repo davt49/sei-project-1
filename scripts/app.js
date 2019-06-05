@@ -517,6 +517,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const line18 = [board[180],board[181],board[182],board[183],board[184],board[185],board[186],board[187],board[188],board[189]]
   const line19 = [board[190],board[191],board[192],board[193],board[194],board[195],board[196],board[197],board[198],board[199]]
 
+  const whichLine = [line2,line3,line4,line5,line6,line7,line8,line9,line10,line11,line12,line13,line14,line15,line16,line17,line18,line19,]
+
 
   const two = document.querySelectorAll('.two')
   const three = document.querySelectorAll('.three')
@@ -563,6 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   setInterval(slowDrop, 1000)
 
+  // arrow movements *****************************************************************
   function handleKeyDown(e) {
 
     switch(e.keyCode) {
@@ -638,8 +641,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(playerIndex, playerIndexTwo, playerIndexThree, playerIndexFour)
   }
 
-
-  function giveScore(){
+  // check lines and give score ************************************************************
+  function giveScoreNineteen(){
     let count = 0
 
     line19.forEach(nineteen => {
@@ -653,19 +656,116 @@ document.addEventListener('DOMContentLoaded', () => {
       line19.forEach(nineteen => {
         nineteen.classList.remove('idle')
       })
-
+      count = count - 10
+      //drops lines
       const idleAround = document.querySelectorAll('.idle')
       idleAround.forEach(idleAround => {
         idleAround.classList.remove('idle')
         board[board.indexOf(idleAround) + width].classList.add('idle')
       })
-
       // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
       // audio.play()
     }
   }
 
-  setInterval(giveScore, 1000)
+  // for (let i = occupiedSquares.length-1; i >=0 ; i--) {
+  //     const square = occupiedSquares[i]
+  //     const squareRow = square.dataset.row
+  //     const position = parseInt(square.dataset.position)
+  //     if (squareRow < row) {
+  //       square.classList.remove('shape-inactive')
+  //       //console.log(squares[position])
+  //       // console.log(squares[(position+width)])
+  //       squares[(position+width)].classList.add('shape-inactive')
+  //     }
+  //   }
+  //   for (let i = idleAround.length-1; i >= 0; i--){
+  //
+  //     if()
+  //   }
+
+
+
+  function giveScoreEighteen(){
+    let count = 0
+
+    line18.forEach(eighteen => {
+      if(eighteen.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line18.forEach(eighteen => {
+        eighteen.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const idleAround = document.querySelectorAll('.idle')
+      idleAround.forEach(idleAround => {
+        idleAround.classList.remove('idle')
+        board[board.indexOf(idleAround) + width].classList.add('idle')
+      })
+      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+      // audio.play()
+    }
+  }
+  function giveScoreSeventeen(){
+    let count = 0
+
+    line17.forEach(seventeen => {
+      if(seventeen.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line17.forEach(seventeen => {
+        seventeen.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const idleAround = document.querySelectorAll('.idle')
+      idleAround.forEach(idleAround => {
+        idleAround.classList.remove('idle')
+        board[board.indexOf(idleAround) + width].classList.add('idle')
+      })
+      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+      // audio.play()
+    }
+  }
+  function giveScoreSixteen(){
+    let count = 0
+
+    line16.forEach(sixteen => {
+      if(sixteen.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line16.forEach(sixteen => {
+        sixteen.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const idleAround = document.querySelectorAll('.idle')
+      idleAround.forEach(idleAround => {
+        idleAround.classList.remove('idle')
+        board[board.indexOf(idleAround) + width].classList.add('idle')
+      })
+      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+      // audio.play()
+    }
+  }
+
+  setInterval(giveScoreNineteen, 1000)
+  // setInterval(giveScoreEighteen, 1000)
+  // setInterval(giveScoreSeventeen, 1000)
+  // setInterval(giveScoreSixteen, 1000)
 
 
   //MUSIC SECTION
