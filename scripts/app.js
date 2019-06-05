@@ -539,6 +539,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const eighteen = document.querySelectorAll('.eighteen')
   const nineteen = document.querySelectorAll('.nineteen')
 
+
+  // slow drop **********************************************************
   function slowDrop(){
 
     console.log('check now if the move will be possible')
@@ -658,31 +660,55 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       count = count - 10
       //drops lines
-      const idleAround = document.querySelectorAll('.idle')
-      idleAround.forEach(idleAround => {
-        idleAround.classList.remove('idle')
-        board[board.indexOf(idleAround) + width].classList.add('idle')
+
+      const removedSquares = []
+
+      board.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
       })
+      board.forEach(square => {
+        square.classList.remove('idle')
+      })
+
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+
       // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
       // audio.play()
     }
   }
 
-  // for (let i = occupiedSquares.length-1; i >=0 ; i--) {
-  //     const square = occupiedSquares[i]
-  //     const squareRow = square.dataset.row
-  //     const position = parseInt(square.dataset.position)
-  //     if (squareRow < row) {
-  //       square.classList.remove('shape-inactive')
-  //       //console.log(squares[position])
-  //       // console.log(squares[(position+width)])
-  //       squares[(position+width)].classList.add('shape-inactive')
-  //     }
-  //   }
-  //   for (let i = idleAround.length-1; i >= 0; i--){
+
+  // for (let i = board.length-1; i >= 0; i--){
   //
-  //     if()
+  //   if(idleCheck() === false){
+  //
   //   }
+  // }
+
+  // const removedSquares = []
+  //
+  // board.forEach((square, index) => {
+  //   if (square.classList.contains('idle')) {
+  //     removedSquares.push(index)
+  //   }
+  // })
+  // board.forEach(square => {
+  //   square.classList.remove('idle')
+  // })
+  //
+  //
+  // removedSquares.forEach(index => {
+  //   board[index + width].classList.add('idle')
+  // })
+
+  // board[board.indexof(removedSquares).classList.add('idle')]
+  //
+  // = removedSquares.forEach(id => item + width)
+
 
 
 
@@ -702,10 +728,19 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       count = count - 10
       //drops lines
-      const idleAround = document.querySelectorAll('.idle')
-      idleAround.forEach(idleAround => {
-        idleAround.classList.remove('idle')
-        board[board.indexOf(idleAround) + width].classList.add('idle')
+      const removedSquares = []
+
+      board.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      board.forEach(square => {
+        square.classList.remove('idle')
+      })
+
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
       })
       // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
       // audio.play()
@@ -727,10 +762,19 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       count = count - 10
       //drops lines
-      const idleAround = document.querySelectorAll('.idle')
-      idleAround.forEach(idleAround => {
-        idleAround.classList.remove('idle')
-        board[board.indexOf(idleAround) + width].classList.add('idle')
+      const removedSquares = []
+
+      board.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      board.forEach(square => {
+        square.classList.remove('idle')
+      })
+
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
       })
       // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
       // audio.play()
@@ -752,10 +796,19 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       count = count - 10
       //drops lines
-      const idleAround = document.querySelectorAll('.idle')
-      idleAround.forEach(idleAround => {
-        idleAround.classList.remove('idle')
-        board[board.indexOf(idleAround) + width].classList.add('idle')
+      const removedSquares = []
+
+      board.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      board.forEach(square => {
+        square.classList.remove('idle')
+      })
+
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
       })
       // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
       // audio.play()
@@ -763,9 +816,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setInterval(giveScoreNineteen, 1000)
-  // setInterval(giveScoreEighteen, 1000)
-  // setInterval(giveScoreSeventeen, 1000)
-  // setInterval(giveScoreSixteen, 1000)
+  setInterval(giveScoreEighteen, 1000)
+  setInterval(giveScoreSeventeen, 1000)
+  setInterval(giveScoreSixteen, 1000)
 
 
   //MUSIC SECTION
