@@ -293,13 +293,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-
-
-
-
-
-
-
   //scoreboardsendhelp
   //scoreboardsendhelp
 
@@ -850,7 +843,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function giveScoreFourteen(){
     let count = 0
 
-    line15.forEach(fourteen => {
+    line14.forEach(fourteen => {
       if(fourteen.classList.contains('idle')) {
         count = count + 1
       }
@@ -882,6 +875,41 @@ document.addEventListener('DOMContentLoaded', () => {
       scoreSound.play()
     }
   }
+  function giveScoreThirteen(){
+    let count = 0
+
+    line13.forEach(thirteen => {
+      if(thirteen.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line13.forEach(thirteen => {
+        thirteen.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line13.concat(line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
 
 
 
@@ -896,6 +924,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(giveScoreSixteen, 400)
   setInterval(giveScoreFifteen, 500)
   setInterval(giveScoreFourteen, 600)
+  setInterval(giveScoreThirteen, 700)
 
 
   //MUSIC SECTION
@@ -920,6 +949,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   window.addEventListener('keydown', handleKeyDown)
-  console.log(board)
+  // console.log(board)
 
 })
