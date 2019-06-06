@@ -18,30 +18,23 @@ section{
   height: 600px;
   width: 350px;
   margin: 0 auto;
+
 }
 
 
 .scoreboard, .highscoreboard{
   text-align: center;
-  font-size: 25px;
-  height: 40px;
-  width: 180px;
-  padding: 2px;
+  font-size: 20px;
+  height: 30px;
+  width: 230px;
   margin: auto;
   border: 1px solid silver;
   background-color: SaddleBrown;
   color: white;
+  opacity: 0.8;
 }
 
-.music-title{
-  text-align: center;
-  color: azure;
-  font-size: 25px;
 
-}
-.music-buttons{
-  display: flex;
-}
 
 .about{
   text-align: center;
@@ -58,13 +51,24 @@ section{
   margin-top: 50px;
   color: white;
   font-size: 20px;
-  font-family: 'Patrick Hand SC', cursive;
+  font-family: 'Fredericka the Great', cursive;
+}
+.music-title{
+  text-align: center;
+  color: azure;
+  font-size: 30px;
+  font-family: 'Fredericka the Great', cursive;
+
+}
+.music-buttons{
+  display: flex;
 }
 
-.music:hover, .stopMusic:hover {background-color: SaddleBrown}
+
+.music:hover, .stopMusic:hover {background-color: navy}
 
 .music:active, .stopMusic:active {
-  background-color: SaddleBrown;
+  background-color: navy;
   /* box-shadow: 0 5px dimgrey; */
   transform: translateY(2px);
 }
@@ -73,25 +77,33 @@ section{
 
   align-self: flex-start;
   height: 40px;
-  width: 40px;
+  width: 60px;
+  font-size: 10px;
   padding: 2px;
-    margin: auto;
+  margin-left: 120px;
+  margin-right: 10px;
   border: 1px solid silver;
-  border-radius: 20px;
-  background-color: SaddleBrown;
+  border-radius: 30px;
+  font-family: 'Fredericka the Great', cursive;
+  background-color: maroon;
   color: white;
+  opacity: 0.7;
 }
 .stopMusic{
 
   align-self: flex-end;
   height: 40px;
-  width: 40px;
+  width: 60px;
+  font-size: 10px;
   padding: 2px;
-    margin: auto;
+  margin-right: 120px;
+  margin-left: 10px;
   border: 1px solid silver;
-  border-radius: 20px;
-  background-color: SaddleBrown;
+  border-radius: 30px;
+  font-family: 'Fredericka the Great', cursive;
+  background-color: maroon;
   color: white;
+  opacity: 0.7;
 }
 
 #currentSong{
