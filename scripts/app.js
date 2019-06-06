@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const height = 20
   const board = []
   const score = document.querySelector('.score')
+  const scoreSound = document.querySelector('#scoreSound')
+  scoreSound.volume = 1
 
   let playerIndex
   let playerIndexTwo
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const square = document.createElement('div')
       square.classList.add('grid-item')
       square.setAttribute('id',`${i}`)
-      square.innerHTML = i
+      // square.innerHTML = i
       board.push(square)
       grid.append(square)
     }
@@ -291,9 +293,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+
+
+
+
+
+
+
   //scoreboardsendhelp
   //scoreboardsendhelp
 
+
+  //line1
+  board[0].classList.add('topLine')
+  board[1].classList.add('topLine')
+  board[2].classList.add('topLine')
+  board[3].classList.add('topLine')
+  board[4].classList.add('topLine')
+  board[5].classList.add('topLine')
+  board[6].classList.add('topLine')
+  board[7].classList.add('topLine')
+  board[8].classList.add('topLine')
+  board[9].classList.add('topLine')
 
   //line 2
   board[20].classList.add('two')
@@ -519,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const whichLine = [line2,line3,line4,line5,line6,line7,line8,line9,line10,line11,line12,line13,line14,line15,line16,line17,line18,line19,]
 
-
+  const topLine = document.querySelectorAll('.topLine')
   const two = document.querySelectorAll('.two')
   const three = document.querySelectorAll('.three')
   const four = document.querySelectorAll('.four')
@@ -538,6 +559,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const seventeen = document.querySelectorAll('.seveneen')
   const eighteen = document.querySelectorAll('.eighteen')
   const nineteen = document.querySelectorAll('.nineteen')
+
+  const title = document.querySelector('.title')
+
+
 
 
   // slow drop **********************************************************
@@ -675,41 +700,10 @@ document.addEventListener('DOMContentLoaded', () => {
       removedSquares.forEach(index => {
         board[index + width].classList.add('idle')
       })
-
-      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
-      // audio.play()
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
     }
   }
-
-
-  // for (let i = board.length-1; i >= 0; i--){
-  //
-  //   if(idleCheck() === false){
-  //
-  //   }
-  // }
-
-  // const removedSquares = []
-  //
-  // board.forEach((square, index) => {
-  //   if (square.classList.contains('idle')) {
-  //     removedSquares.push(index)
-  //   }
-  // })
-  // board.forEach(square => {
-  //   square.classList.remove('idle')
-  // })
-  //
-  //
-  // removedSquares.forEach(index => {
-  //   board[index + width].classList.add('idle')
-  // })
-
-  // board[board.indexof(removedSquares).classList.add('idle')]
-  //
-  // = removedSquares.forEach(id => item + width)
-
-
 
 
   function giveScoreEighteen(){
@@ -728,22 +722,24 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       count = count - 10
       //drops lines
+      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
+      // audio.play()
       const removedSquares = []
 
-      board.forEach((square, index) => {
+      const linesToIgnore = line18.concat(line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
         if (square.classList.contains('idle')) {
           removedSquares.push(index)
         }
       })
-      board.forEach(square => {
+      filteredBoard.forEach(square => {
         square.classList.remove('idle')
       })
-
       removedSquares.forEach(index => {
         board[index + width].classList.add('idle')
       })
-      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
-      // audio.play()
     }
   }
   function giveScoreSeventeen(){
@@ -844,24 +840,26 @@ document.addEventListener('DOMContentLoaded', () => {
       removedSquares.forEach(index => {
         board[index + width].classList.add('idle')
       })
-      // audio.src = tracks[Math.floor(Math.random() * tracks.length)]
-      // audio.play()
+      audio.src = 'menunote.wav'
+      audio.play()
     }
   }
 
-  setInterval(giveScoreNineteen, 1000)
-  setInterval(giveScoreEighteen, 1000)
-  setInterval(giveScoreSeventeen, 1000)
-  setInterval(giveScoreSixteen, 1000)
-  setInterval(giveScoreFifteen, 1000)
+  setInterval(giveScoreNineteen, 100)
+  setInterval(giveScoreEighteen, 200)
+  setInterval(giveScoreSeventeen, 300)
+  setInterval(giveScoreSixteen, 400)
+  setInterval(giveScoreFifteen, 500)
 
 
   //MUSIC SECTION
   //MUSIC SECTION
+
   const audio = document.querySelector('#audio')
+  audio.volume = 0.2
   const music = document.querySelector('.music')
   const stopMusic = document.querySelector('.stopMusic')
-  const tracks = ['sounds/slowyShowdown.mp3','sounds/atompilz.mp3','sounds/Brechmittel.mp3','sounds/Glaubensfrage.mp3']
+  const tracks = ['sounds/atompilz.mp3','sounds/Glaubensfrage.mp3']
   music.addEventListener('click', () => {
     audio.src = tracks[Math.floor(Math.random() * tracks.length)]
     audio.play()

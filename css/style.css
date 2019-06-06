@@ -1,9 +1,10 @@
 body{
   background-color: lightsteelblue;
   /* background-image: url('../pics/oldLondonCoffeeHouse.jpg'); */
-  /* background-image: url('https://media0.giphy.com/media/1PMVNNKVIL8Ig/giphy.gif?cid=790b76115cf67e014967396d41b112c5&rid=giphy.gif'); */
+  background-image: url('../pics/maxresdefault.jpg');
   background-repeat: no-repeat;
-  background-size: 1528px 736px;
+  background-size: 1458px 736px;
+  font-family: 'Patrick Hand SC', cursive;
 }
 /* /Users/davidtsui/development/projects/sei-project-1/pics/oldLondonCoffeeHouse.jpg */
 
@@ -19,30 +20,54 @@ section{
   margin: 0 auto;
 }
 
-.about{
-  text-align: center;
-  margin-top: 50px;
-}
 
 .scoreboard, .highscoreboard{
   text-align: center;
-  height: 30px;
-  width: 150px;
+  font-size: 25px;
+  height: 40px;
+  width: 180px;
   padding: 2px;
-  margin: 2px;
-  border: 1px solid forestgreen;
-  background-color: navy;
+  margin: auto;
+  border: 1px solid silver;
+  background-color: SaddleBrown;
   color: white;
 }
 
 .music-title{
   text-align: center;
+  color: azure;
+  font-size: 25px;
 
 }
 .music-buttons{
   display: flex;
 }
 
+.about{
+  text-align: center;
+  margin-top: 50px;
+  color: navy;
+  text-shadow: 2px 2px 0 gold, 2px -2px 0 gold, -2px 2px 0 gold, -2px -2px 0 gold, 2px 0px 0 gold, 0px 2px 0 gold, -2px 0px 0 gold, 0px -2px 0 gold;
+  font-size: 30px;
+  font-family: 'Bentham', serif;
+
+}
+
+.instructions{
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+  font-size: 20px;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+.music:hover, .stopMusic:hover {background-color: SaddleBrown}
+
+.music:active, .stopMusic:active {
+  background-color: SaddleBrown;
+  /* box-shadow: 0 5px dimgrey; */
+  transform: translateY(2px);
+}
 
 .music{
 
@@ -50,8 +75,11 @@ section{
   height: 40px;
   width: 40px;
   padding: 2px;
-  margin: 2px;
-  border: 1px solid forestgreen;
+    margin: auto;
+  border: 1px solid silver;
+  border-radius: 20px;
+  background-color: SaddleBrown;
+  color: white;
 }
 .stopMusic{
 
@@ -59,8 +87,11 @@ section{
   height: 40px;
   width: 40px;
   padding: 2px;
-  margin: 2px;
-  border: 1px solid forestgreen;
+    margin: auto;
+  border: 1px solid silver;
+  border-radius: 20px;
+  background-color: SaddleBrown;
+  color: white;
 }
 
 #currentSong{
@@ -71,7 +102,7 @@ section{
   display: block;
   width: 30px;
   height: 30px;
-  border: 1px solid blue;
+  border: 1px solid white;
 }
 
 div.grid-item.activeItem {

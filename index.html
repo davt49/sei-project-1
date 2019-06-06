@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Test</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Patrick+Hand+SC&display=swap" rel="stylesheet">
     <script type="text/javascript" src="scripts/app.js"></script>
 
   </head>
@@ -11,20 +12,24 @@
     <section>
       <div class="grid"></div>
       <div class="rightpanel">
+        <audio id="scoreSound"></audio>
         <div class="scoreboard">Score:<span class="score">0</span></div>
         <div class="highscoreboard">Highscore:<span class="highscore">0</span></div>
-        <audio id="audio"></audio>
         <h3 class="music-title">Music</h3>
         <div class="music-buttons">
+          <audio id="audio"></audio>
           <button class="music">Play</button>
           <button class="stopMusic">Stop</button>
 
         </div>
 
         <article class="about">
-          <h1>David's Tetris</h1>
-          <p>Rotate within the central area</p>
+          <h1 class="title">David's Tetris</h1>
+          <p>Grab a cuppa, have a biscuit</p>
         </article>
+        <div class="instructions">
+          <p>Rotate(Up Arrow) within the central area</p>
+        </div>
 
       </div>
     </section>
