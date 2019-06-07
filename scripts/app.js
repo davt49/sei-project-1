@@ -293,6 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  
+
   //scoreboardsendhelp
   //scoreboardsendhelp
 
@@ -910,21 +912,339 @@ document.addEventListener('DOMContentLoaded', () => {
       scoreSound.play()
     }
   }
+  function giveScoreTwelve(){
+    let count = 0
 
+    line12.forEach(twelve => {
+      if(twelve.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line12.forEach(twelve => {
+        twelve.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line12.concat(line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
 
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreEleven(){
+    let count = 0
 
+    line11.forEach(eleven => {
+      if(eleven.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line11.forEach(eleven => {
+        eleven.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line11.concat(line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
 
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreTen(){
+    let count = 0
 
+    line10.forEach(ten => {
+      if(ten.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line10.forEach(ten => {
+        ten.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line10.concat(line11, line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
 
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreNine(){
+    let count = 0
+
+    line9.forEach(nine => {
+      if(nine.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line9.forEach(nine => {
+        nine.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line9.concat(line10, line11, line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreEight(){
+    let count = 0
+
+    line8.forEach(eight => {
+      if(eight.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line8.forEach(eight => {
+        eight.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line8.concat(line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreSeven(){
+    let count = 0
+
+    line7.forEach(seven => {
+      if(seven.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line7.forEach(seven => {
+        seven.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line7.concat(line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreSix(){
+    let count = 0
+
+    line6.forEach(six => {
+      if(six.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line6.forEach(six => {
+        six.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line6.concat(line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreFive(){
+    let count = 0
+
+    line5.forEach(five => {
+      if(five.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line5.forEach(five => {
+        five.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line5.concat(line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
+  function giveScoreFour(){
+    let count = 0
+
+    line4.forEach(four => {
+      if(four.classList.contains('idle')) {
+        count = count + 1
+      }
+    })
+    if (count === 10){
+      score.innerHTML = parseFloat(score.innerHTML) + 10
+      console.log('10 points!')
+      line4.forEach(four => {
+        four.classList.remove('idle')
+      })
+      count = count - 10
+      //drops lines
+      const removedSquares = []
+      const linesToIgnore = line4.concat(line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19)
+      const filteredBoard = board.filter(index => !linesToIgnore.includes(index))
+
+      filteredBoard.forEach((square, index) => {
+        if (square.classList.contains('idle')) {
+          removedSquares.push(index)
+        }
+      })
+      filteredBoard.forEach(square => {
+        square.classList.remove('idle')
+      })
+      removedSquares.forEach(index => {
+        board[index + width].classList.add('idle')
+      })
+      scoreSound.src = 'sounds/menunote.wav'
+      scoreSound.play()
+    }
+  }
 
 
   setInterval(giveScoreNineteen, 100)
-  setInterval(giveScoreEighteen, 200)
-  setInterval(giveScoreSeventeen, 300)
-  setInterval(giveScoreSixteen, 400)
-  setInterval(giveScoreFifteen, 500)
-  setInterval(giveScoreFourteen, 600)
-  setInterval(giveScoreThirteen, 700)
+  setInterval(giveScoreEighteen, 150)
+  setInterval(giveScoreSeventeen, 200)
+  setInterval(giveScoreSixteen, 250)
+  setInterval(giveScoreFifteen, 300)
+  setInterval(giveScoreFourteen, 350)
+  setInterval(giveScoreThirteen, 400)
+  setInterval(giveScoreTwelve, 450)
+  setInterval(giveScoreEleven, 500)
+  setInterval(giveScoreTen, 550)
+  setInterval(giveScoreNine, 600)
+  setInterval(giveScoreEight, 650)
+  setInterval(giveScoreSeven, 700)
+  setInterval(giveScoreSix, 750)
+  setInterval(giveScoreFive, 800)
+  setInterval(giveScoreFour, 850)
 
 
   //MUSIC SECTION

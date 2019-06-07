@@ -41,10 +41,30 @@ section{
   margin-top: 50px;
   color: navy;
   text-shadow: 2px 2px 0 gold, 2px -2px 0 gold, -2px 2px 0 gold, -2px -2px 0 gold, 2px 0px 0 gold, 0px 2px 0 gold, -2px 0px 0 gold, 0px -2px 0 gold;
-  font-size: 30px;
+  font-size: 40px;
   font-family: 'Bentham', serif;
 
 }
+
+.resetDiv{
+  display: flex;
+}
+
+.reset{
+  text-align: center;
+  margin: 10px auto;
+  background-color: peru;
+  color: black;
+  /* text-shadow: 2px 2px 0 gold, 2px -2px 0 gold, -2px 2px 0 gold, -2px -2px 0 gold, 2px 0px 0 gold, 0px 2px 0 gold, -2px 0px 0 gold, 0px -2px 0 gold; */
+  border-radius: 20px;
+  font-size: 15px;
+  font-family: 'Bentham', serif;
+  opacity: 0.8;
+}
+.reset:hover {
+  background-color: crimson;
+}
+
 
 .instructions{
   text-align: center;
