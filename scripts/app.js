@@ -292,8 +292,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // setTimeout(whatShape, 500)
   }
 
+  // Reset ******************************************************************
+  const reset = document.querySelector('.reset')
 
-  
+  reset.addEventListener('click', () => {
+
+    board.forEach(square => {
+      square.classList.remove('idle')
+    })
+
+    score.innerHTML = '0'
+
+  })
+
+
+
+
+
 
   //scoreboardsendhelp
   //scoreboardsendhelp
