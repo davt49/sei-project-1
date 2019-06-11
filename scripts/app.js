@@ -268,6 +268,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  function sideCheck(){
+    const oneRight = playerIndex + 1
+    const oneLeft = playerIndex - 1
+    const twoRight = playerIndexTwo + 1
+    const twoLeft = playerIndexTwo - 1
+    const threeRight = playerIndexThree + 1
+    const threeLeft = playerIndexThree - 1
+    const fourRight = playerIndexFour + 1
+    const fourLeft = playerIndexFour - 1
+
+    if ((Array.from(board[oneRight].classList).includes('idle')) ||
+    (Array.from(board[oneLeft].classList).includes('idle')) ||
+    (Array.from(board[twoRight].classList).includes('idle')) ||
+    (Array.from(board[twoLeft].classList).includes('idle')) ||
+    (Array.from(board[threeRight].classList).includes('idle')) ||
+    (Array.from(board[threeLeft].classList).includes('idle')) ||
+    (Array.from(board[fourRight].classList).includes('idle')) ||
+    (Array.from(board[fourLeft].classList).includes('idle'))) {
+      console.log('found idle side')
+      return true
+    }  else {
+      return false
+    }
+  }
+
   function bottomCheck(){
     if(playerIndex === 190 || playerIndex === 191 || playerIndex === 192 || playerIndex === 191 || playerIndex === 193 || playerIndex === 194 || playerIndex === 195 || playerIndex === 196|| playerIndex === 197|| playerIndex === 198|| playerIndex === 199 || playerIndexTwo === 190 || playerIndexTwo === 191 || playerIndexTwo === 192 || playerIndexTwo === 193 || playerIndexTwo === 194 || playerIndexTwo === 195 || playerIndexTwo === 196|| playerIndexTwo === 197|| playerIndexTwo === 198|| playerIndexTwo === 199 || playerIndexThree === 190 || playerIndexThree === 191 || playerIndexThree === 192 || playerIndexThree === 193 || playerIndexThree === 194 || playerIndexThree === 195 || playerIndexThree === 196|| playerIndexThree === 197|| playerIndexThree === 198|| playerIndexThree === 199 || playerIndexFour === 190 || playerIndexFour === 191 || playerIndexFour === 192 || playerIndexFour === 193 || playerIndexFour === 194 || playerIndexFour === 195 || playerIndexFour === 196|| playerIndexFour === 197|| playerIndexFour === 198|| playerIndexFour === 199){
       console.log('found the bottom')
@@ -609,6 +634,8 @@ document.addEventListener('DOMContentLoaded', () => {
       case 39:
         if (playerIndexFour % 10 === 9 || playerIndexThree % 10 === 9 || playerIndexTwo % 10 === 9 || playerIndex % 10 === 9 ){
           console.log('wall')
+        } else if (sideCheck() === true){
+          console.log('side')
         } else if (playerIndex % width < width) {
           playerIndex++
           playerIndexTwo++
@@ -643,6 +670,8 @@ document.addEventListener('DOMContentLoaded', () => {
       case 38:
         if (playerIndexFour % 10 === 8 || playerIndexThree % 10 === 8 || playerIndexTwo % 10 === 8 || playerIndex % 10 === 8 || playerIndexFour % 10 === 1 || playerIndexThree % 10 === 1 || playerIndexTwo % 10 === 1 || playerIndex % 10 === 1 ){
           console.log('wall')
+        } else if (sideCheck() === true){
+          console.log('side')
         } else {
           console.log(whichOne.name,whichOne.playerIndex[0],whichOne.playerIndex[1],whichOne.playerIndex[2],whichOne.playerIndex[3],degrees)
           rotate()
