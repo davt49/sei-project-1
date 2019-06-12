@@ -653,6 +653,8 @@ document.addEventListener('DOMContentLoaded', () => {
       case 37:
         if (playerIndexFour % 10 === 0 || playerIndexThree % 10 === 0 || playerIndexTwo % 10 === 0 || playerIndex % 10 === 0 ){
           console.log('wall')
+        } else if (sideCheck() === true){
+          console.log('side')
         } else if (playerIndex % width > 0) {
           playerIndex--
           playerIndexTwo--
