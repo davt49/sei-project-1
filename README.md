@@ -1,5 +1,5 @@
 # sei-project-1
-General Assembly Project 1: Vanilla JS Web Game
+General Assembly Project 1: Tetris -Vanilla JS Web Game
 ==========================
 1 week long personal project using only html, css and vanilla javascript.
 
