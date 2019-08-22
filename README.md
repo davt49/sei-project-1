@@ -3,10 +3,7 @@ General Assembly Project 1: Tetris -Vanilla JS Web Game
 ==========================
 1 week long personal project using only html, css and vanilla javascript.
 
-
-
 I picked Tetris as I've always been a fan of the sandbox type of games with randomised outcomes.
-
 
 Theme
 ==========
@@ -24,65 +21,20 @@ Play button will start a random song.
 Stop button will stop the music.
 
 
-Javascript Functions Overview
+Javascript Overview
 ========================
 Grid
 ------
-
+First I have to create a working grid for the game to be based on. Using a for loop to keep creating squares until the maximum number determined by height times width. The squares are given a grid-item class and then pushed onto the board array. Finally it's appended onto the grid.
 
 Shape
 ------
-
-
-Random Shape
-------
-
-
-Rotation
-------
-
-
-Slow Drop
-------
-
-
-Key Movements
-------
-
-
-
-Class Changing
-------
-
-
-Class Checks:
-------
-bottom line
-
-
-blocks below active shape
-
-
+The starting positions of the shapes are created by assigning numbers on the board to them. They receive an active class to their starting positions and all four of the blocks drop their position every second. Since the board width is 10, this is simply adding 10 to the number. To rotate the shapes I set a new 'degrees' variable that switches numbers when set specifically for their shape. When the shapes reach the bottom they will change to a class called 'idle'.
 
 Give Score/line manipulation
 ------
-
-
-Reset Button
-------
-
-
+When each line is filled completely, 10 points will be added to the scoreboard with a soothing sound effect, as well as dropping all the 'idle' lines above down one line. Due to the different circumstances for each line clear I have to create a seperate function for each. If any the shapes reach another 'idle' block they will be stopped and have their class switched to idle right away. To make sure the shapes don't fall out of the grid I created functions to check for the 'idle' class on the sides.
 
 Music Section
 ------
-
-
-
-
-additionals
-gameover pop up
-special shapes
-
-
-
-I started off creating the grid for the game, then the shape positions
+I added two mp3 tracks that I feel compliment the feel of the design well. They are linked to the buttons as well as the audio tag on the html.
