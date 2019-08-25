@@ -47,7 +47,7 @@ Give Score/line manipulation
 
 ![](pics/giveScore.png)
 
-To make sure the shapes don't fall out of the grid I created functions to check for the 'idle' class on the sides.
+To make sure the shapes don't physically pass through idle blocks I created a function to check for the 'idle' class on the sides.
 
 ![](pics/sideCheck.png)
 
