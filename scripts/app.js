@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const square = document.createElement('div')
       square.classList.add('grid-item')
       square.setAttribute('id',`${i}`)
-      // square.innerHTML = i
       board.push(square)
       grid.append(square)
     }
