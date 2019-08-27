@@ -3,7 +3,7 @@ body{
   /* background-image: url('../pics/oldLondonCoffeeHouse.jpg'); */
   background-image: url('../pics/maxresdefault.jpg');
   background-repeat: no-repeat;
-  background-size: 1458px 736px;
+  background-size: cover;
   font-family: 'Patrick Hand SC', cursive;
 }
 /* /Users/davidtsui/development/projects/sei-project-1/pics/oldLondonCoffeeHouse.jpg */
