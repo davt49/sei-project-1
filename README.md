@@ -56,11 +56,11 @@ I added two mp3 tracks that I feel compliment the feel of the design well. They 
 
 ![](pics/music.png)
 
-###### Wins
+## Wins
 
 Being one of the harder games from the list we could pick from, I'm very happy that I created a smooth gameplay and overall pleasant experience. I also enjoyed the intuitiveness of vanilla JS, creating and experimenting with functions.
 
-###### Challenges
+## Challenges
 
 There were many challenges while making this. Most notably making sure the lines clear correctly as well as making sure 'idle' blocks are impassable.
 
@@ -69,7 +69,7 @@ Because of the fact that each line clear affect the board differently I have a d
 Originally there was not enough restrictions on the key controls, and a host of problems such as active blocks moving across the side border, which messed up the calculations for rotations, so I had to make sure the left and right key does not work on the side columns on the edge. After that, certain blocks, particularly 'I' and 'T' are still crossing the edge while rotating, and the fix was to make the rotate button not work on the 2 side columns on the edge. Later on, a fix was added to the left and right buttons to check that they are not passing through 'idle' blocks. A lot of functionality is attached to those 4 keys for the game, which was slightly surprising. Still a lot can be improved.
 
 
-###### Future Improvements
+## Future Improvements
 
 At over 1.3k lines, App.js is really long for the other Tetris makers at GA that I know. This is because of the function for each line of score giving/line clearing and dropping cannot just be the same and applied to every single instance. Finding a way to fix that will drastically reduce the length of the code required.
 
