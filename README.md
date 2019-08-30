@@ -36,7 +36,7 @@ Play button will start a random song.
 Stop button will stop the music.
 
 
-## Javascript Overview
+## Javascript Overview/Process
 
 ##### Grid
 
