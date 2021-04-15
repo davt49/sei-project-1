@@ -4,7 +4,7 @@ body{
   background-image: url('../pics/maxresdefault.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Patrick Hand SC', cursive;
+  font-family: 'Train One', cursive;
 }
 /* /Users/davidtsui/development/projects/sei-project-1/pics/oldLondonCoffeeHouse.jpg */
 
@@ -45,7 +45,7 @@ section{
   color: navy;
   text-shadow: 2px 2px 0 gold, 2px -2px 0 gold, -2px 2px 0 gold, -2px -2px 0 gold, 2px 0px 0 gold, 0px 2px 0 gold, -2px 0px 0 gold, 0px -2px 0 gold;
   font-size: 40px;
-  font-family: 'Bentham', serif;
+  font-family: 'Train One', cursive;
 
 }
 
@@ -61,7 +61,7 @@ section{
   /* text-shadow: 2px 2px 0 gold, 2px -2px 0 gold, -2px 2px 0 gold, -2px -2px 0 gold, 2px 0px 0 gold, 0px 2px 0 gold, -2px 0px 0 gold, 0px -2px 0 gold; */
   border-radius: 20px;
   font-size: 15px;
-  font-family: 'Bentham', serif;
+  font-family: 'Train One', cursive;
   opacity: 0.8;
 }
 .reset:hover {
@@ -74,13 +74,13 @@ section{
   margin-top: 50px;
   color: white;
   font-size: 20px;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Train One', cursive;
 }
 .music-title{
   text-align: center;
   color: azure;
   font-size: 30px;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Train One', cursive;
 
 }
 .music-buttons{
@@ -107,7 +107,7 @@ section{
   margin-right: 10px;
   border: 1px solid silver;
   border-radius: 30px;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Train One', cursive;
   background-color: maroon;
   color: white;
   opacity: 0.7;
@@ -123,7 +123,7 @@ section{
   margin-left: 10px;
   border: 1px solid silver;
   border-radius: 30px;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Train One', cursive;
   background-color: maroon;
   color: white;
   opacity: 0.7;
