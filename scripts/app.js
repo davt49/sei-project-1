@@ -509,14 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         break
       case 38:
-<<<<<<< HEAD
-        if (playerIndexFour % 10 === 8 || playerIndexThree % 10 === 8 || playerIndexTwo % 10 === 8 || 
-          playerIndex % 10 === 8 || playerIndexFour % 10 === 1 || playerIndexThree % 10 === 1 || 
-          playerIndexTwo % 10 === 1 || playerIndex % 10 === 1 || 
-=======
         if (playerIndexFour % 10 === 8 || playerIndexThree % 10 === 8 || playerIndexTwo % 10 === 8 || playerIndex % 10 === 8 || 
           playerIndexFour % 10 === 1 || playerIndexThree % 10 === 1 || playerIndexTwo % 10 === 1 || playerIndex % 10 === 1 ||
->>>>>>> master
           playerIndexFour % 10 === 9 || playerIndexThree % 10 === 9 || playerIndexTwo % 10 === 9 || playerIndex % 10 === 9 ||
           playerIndexFour % 10 === 0 || playerIndexThree % 10 === 0 || playerIndexTwo % 10 === 0 || playerIndex % 10 === 0) {
           console.log('wall')
