@@ -34,7 +34,7 @@ section{
   opacity: 0.8;
 }
 
-.score{
+.score, .highscore{
   color: aqua;
   font-size: 50px;
 }

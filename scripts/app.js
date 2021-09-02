@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const height = 20
   const board = []
   const score = document.querySelector('.score')
+  let scoreNum = 0
+  let highScoreNum = 0
   const scoreSound = document.querySelector('#scoreSound')
+  const highscore =document.querySelector('.highscore')
   scoreSound.volume = 1
 
   let playerIndex
@@ -325,8 +328,13 @@ document.addEventListener('DOMContentLoaded', () => {
       square.classList.remove('idle')
     })
 
+    console.log(scoreNum)
+    if (highScoreNum < scoreNum || highScoreNum === 0){
+      highScoreNum = scoreNum;
+      highscore.innerHTML = scoreNum;
+    }
     score.innerHTML = '0'
-
+    scoreNum = 0
   })
 
 
@@ -522,16 +530,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         break
 
-      // case 38:
-      //   if (playerIndex - width >= 0) {
-      //     playerIndex -= width
-      //     playerIndexTwo -= width
-      //     playerIndexThree -= width
-      //     playerIndexFour -= width
-      //   }
-      //   break
       case 40:
-        // if (playerIndex + width < width * height ) {
+
         if (bottomCheck() === false && idleCheck() === false) {
           playerIndex += width
           playerIndexTwo += width
@@ -551,6 +551,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(playerIndex, playerIndexTwo, playerIndexThree, playerIndexFour)
   }
 
+
+
   // check lines and give score ************************************************************
   function giveScoreNineteen() {
     let count = 0
@@ -562,6 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line19.forEach(nineteen => {
         nineteen.classList.remove('idle')
@@ -599,6 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line18.forEach(eighteen => {
         eighteen.classList.remove('idle')
@@ -635,6 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line17.forEach(seventeen => {
         seventeen.classList.remove('idle')
@@ -670,6 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line16.forEach(sixteen => {
         sixteen.classList.remove('idle')
@@ -705,6 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line15.forEach(fifteen => {
         fifteen.classList.remove('idle')
@@ -740,6 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line14.forEach(fourteen => {
         fourteen.classList.remove('idle')
@@ -775,6 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line13.forEach(thirteen => {
         thirteen.classList.remove('idle')
@@ -810,6 +819,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line12.forEach(twelve => {
         twelve.classList.remove('idle')
@@ -845,6 +855,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line11.forEach(eleven => {
         eleven.classList.remove('idle')
@@ -880,6 +891,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line10.forEach(ten => {
         ten.classList.remove('idle')
@@ -915,6 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line9.forEach(nine => {
         nine.classList.remove('idle')
@@ -950,6 +963,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line8.forEach(eight => {
         eight.classList.remove('idle')
@@ -985,6 +999,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line7.forEach(seven => {
         seven.classList.remove('idle')
@@ -1020,6 +1035,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line6.forEach(six => {
         six.classList.remove('idle')
@@ -1055,6 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line5.forEach(five => {
         five.classList.remove('idle')
@@ -1090,6 +1107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     if (count === 10) {
       score.innerHTML = parseFloat(score.innerHTML) + 10
+      scoreNum += 10
       console.log('10 points!')
       line4.forEach(four => {
         four.classList.remove('idle')
