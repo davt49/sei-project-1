@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let scoreNum = 0
   let highScoreNum = 0
   const scoreSound = document.querySelector('#scoreSound')
-  const highscore =document.querySelector('.highscore')
+  const highscore = document.querySelector('.highscore')
   scoreSound.volume = 1
 
   let playerIndex
